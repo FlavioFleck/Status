@@ -1,8 +1,9 @@
 export default class Appointment {
-    constructor(name, serviceId, userId, date) {
-        this.name = name
-        this.serviceId = serviceId
+    constructor(userId, hairdresserId, serviceId, appointmentId, status) {
         this.userId = userId
-        this.date = date
+        this.hairdresserId = hairdresserId
+        this.serviceId = serviceId
+        this.appointmentId = appointmentId
+        this.status = status
     }
 }

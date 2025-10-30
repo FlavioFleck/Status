@@ -4,7 +4,7 @@ const router = express.Router()
 import connection from '../connection'
 import AppointmentController from '../controllers/AppointmentController'
 
-const appointmentController = new appointmentController(connection)
+const appointmentController = new AppointmentController(connection)
 
 
 router.post('/create', appointmentController.createAppointment)
