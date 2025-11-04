@@ -95,5 +95,4 @@ export default class UserRespository {
         const [rows] = await this.connection.query(query, [email]);
         return rows[0] || null;
     }
-    
 }
