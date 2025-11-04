@@ -1,0 +1,25 @@
+<section class="week-navigator">
+
+  <div class="week-days">
+    
+    <div 
+      *ngFor="let day of days" 
+      class="day-item"
+      [ngClass]="{'active': day === selectedDay}"
+      (click)="selectDay(day)">
+      
+      <span class="day-name">{{ day.name }}</span>
+      <span class="day-number">{{ day.num }}</span>
+    </div>
+  </div>
+  
+  <div class="nav-arrows-container">
+    <span class="nav-arrow prev" (click)="previousWeek()">
+      &lt; Semana anterior
+    </span>
+    <span class="nav-arrow next" (click)="nextWeek()">
+      Semana seguinte &gt;
+    </span>
+  </div>
+
+</section>

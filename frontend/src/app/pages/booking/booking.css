@@ -1,0 +1,91 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  --primary-color: #7E3E3B;
+  --primary-text: #ffffff;
+}
+
+/* o contêiner principal que alinha tudo */
+.booking-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  max-width: 900px;
+  width: 60%;
+  margin: 0 auto;
+  padding: 40px 20px;
+  gap: 30px;
+}
+
+/* estilos do seletor de serviço */
+.service-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.service-selector label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.custom-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.service-selector select {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: var(--primary-color);
+  color: var(--primary-text);
+  border: none;
+  border-radius: 5px;
+  font-family: 'Josefin Slab';
+  font-size: 1rem;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.service-selector select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #683c39;
+}
+
+/* setinha customizada */
+.custom-select-wrapper .select-arrow {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid var(--primary-text);
+  pointer-events: none;
+}
+
+/* estilos do botão de confirmação */
+.confirm-btn {
+  background-color: var(--primary-color);
+  color: var(--primary-text);
+  border: none;
+  padding: 18px 30px;
+  border-radius: 5px;
+  font-family: 'Josefin Slab';
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  align-self: center;
+  margin-top: 10px;
+}
+
+.confirm-btn:hover {
+  background-color: #8a5a5a;
+}

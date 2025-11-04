@@ -1,0 +1,74 @@
+:host {
+  --primary-color: #7E3E3B;
+  --primary-text: #ffffff;
+  --active-color: #713936;
+  --text-color: #6d3a3a;
+}
+
+.week-navigator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+}
+
+.nav-arrows-container {
+  display: flex;
+  justify-content: space-between; /* coloca uma seta em cada ponta */
+  width: 100%;
+}
+
+.nav-arrow {
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.nav-arrow:hover {
+  text-decoration: underline;
+}
+
+.week-days {
+  display: flex;
+  gap: 10px; /* espaço entre os dias */
+}
+
+.day-item {
+  background-color: var(--primary-color);
+  color: var(--primary-text);
+  padding: 10px 38px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 50px;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+}
+
+.day-item span {
+  display: block;
+}
+
+.day-item .day-name {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.day-item .day-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.day-item:hover {
+  background-color: var(--active-color);
+}
+
+/* active vazado */
+.day-item.active {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}

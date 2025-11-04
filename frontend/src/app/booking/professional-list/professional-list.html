@@ -1,0 +1,16 @@
+<section class="professionals-section">
+  <h3>Profissionais Disponíveis:</h3>
+  
+  <div class="professionals-grid">
+    
+    <div 
+      *ngFor="let prof of professionals"
+      class="prof-item"
+      [ngClass]="{'selected': prof.id === selectedProfessionalId}"
+      (click)="selectProfessional(prof)">
+      
+      <span>{{ prof.name }}</span>
+    </div>
+
+  </div>
+</section>

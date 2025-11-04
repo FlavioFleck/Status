@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    font-family: 'Josefin Slab';
+    background-color: transparent; 
+}
+
+html {
+    background-color: #fefcfc; 
+    background-image: linear-gradient(
+    to bottom,
+    #FFFFFF,
+    #FEC7C5
+    );
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    font-size: 18px;
+}

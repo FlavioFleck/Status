@@ -1,0 +1,51 @@
+:host {
+  --primary-color: #7E3E3B;
+  --primary-text: #ffffff;
+  --selected-bg: transparent;
+  --selected-border: #7E3E3B;
+  --selected-text: #7E3E3B;
+  --hover-color: #713936;
+}
+
+.professionals-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.professionals-section h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.professionals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas de tamanho igual */
+  gap: 15px;
+}
+
+.prof-item {
+  background-color: var(--primary-color);
+  color: var(--primary-text);
+  padding: 25px 15px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  border: 2px solid transparent; 
+  transition: all 0.3s ease;
+}
+
+.prof-item:hover {
+  background-color: var(--hover-color);
+}
+
+/* estilo do profissional "selecionado" */
+.prof-item.selected {
+  background-color: var(--selected-bg);
+  color: var(--selected-text);
+  border: 2px solid var(--selected-border);
+}

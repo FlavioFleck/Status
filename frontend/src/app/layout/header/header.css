@@ -1,0 +1,99 @@
+:host {
+  --font-logo: 'Inknut Antiqua';
+  --font-body: 'Josefin Slab';
+  --primary-color: #6d3a3a;
+  --text-color: #333;
+  --border-color: #8E5250;
+}
+
+/* header */
+.salon-header {
+  position: relative; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  padding: 30px 5%;
+  background-color: transparent;
+  border-bottom: 1px solid var(--border-color);
+  width: 100%;
+  box-sizing: border-box; /* padding não quebra o layout */
+}
+
+/* estilos Logo */
+.logo {
+  text-align: center;
+  line-height: 1;
+}
+
+.logo a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo h1 {
+  font-family: var(--font-logo);
+  font-size: 2rem;
+  margin: 0;
+  color: #42201E;
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+
+.logo span {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: #42201E;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* estilos da navegação */
+.main-nav {
+  margin-top: 20px; 
+  font-weight: bold;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 35px;
+}
+
+.main-nav a {
+  font-family: var(--font-body);
+  text-decoration: none;
+  color: var(--primary-color);
+  font-size: 1rem;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+/* sublinhado da página ativa */
+.main-nav a:hover {
+  border-bottom-color: var(--primary-color);
+}
+
+.user-icon {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.user-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}

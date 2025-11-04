@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<main class="booking-container">
+    
+  <section class="service-selector">
+    <label for="service-select">Selecione o serviço desejado:</label>
+    <div class="custom-select-wrapper">
+      <select id="service-select">
+        <option value="">Escolha um serviço...</option>
+        <option value="corte">Corte</option>
+        <option value="escova">Escova</option>
+        <option value="manicure">Manicure/Pedicure</option>
+        <option value="coloracao">Coloração</option>
+      </select>
+      <span class="select-arrow"></span> </div>
+  </section>
+
+  <app-week-navigator
+    [days]="weekDays"
+    [selectedDay]="selectedDay"
+    (daySelected)="onDaySelected($event)">
+  </app-week-navigator>
+
+  <app-professional-list
+    [professionals]="availableProfessionals"
+    [selectedProfessionalId]="selectedProfessionalId"
+    (professionalSelected)="onProfessionalSelected($event)">
+  </app-professional-list>
+
+  <app-time-slot-list
+    [times]="availableTimes"
+    [selectedTime]="selectedTime"
+    (timeSelected)="onTimeSelected($event)">
+  </app-time-slot-list>
+
+  <button class="confirm-btn" (click)="confirmBooking()">
+    Confirmar Agendamento
+  </button>
+    
+</main>
