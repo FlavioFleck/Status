@@ -6,7 +6,7 @@ export default class UserController {
     }
 
     createUser = async(req, res) => {
-
+        
     }
 
     updateUser = async(req, res) => {
