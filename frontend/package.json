@@ -8,5 +8,21 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^20.3.8",
+    "@angular/cli": "^20.3.8",
+    "@angular/compiler-cli": "^20.3.9"
+  },
+  "dependencies": {
+    "@angular/animations": "^20.3.9",
+    "@angular/common": "^20.3.9",
+    "@angular/compiler": "^20.3.9",
+    "@angular/core": "^20.3.9",
+    "@angular/forms": "^20.3.9",
+    "@angular/platform-browser": "^20.3.9",
+    "@angular/platform-browser-dynamic": "^20.3.9",
+    "@angular/router": "^20.3.9",
+    "zone.js": "^0.15.1"
+  }
 }
