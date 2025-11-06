@@ -1,4 +1,4 @@
-import ProductService from "../services/ProductService"
+import ProductService from "../services/ProductService.js"
 
 export default class ProductController {
     constructor(connection) {
@@ -10,7 +10,7 @@ export default class ProductController {
             const payload = {
                 ...req.body
             }
-            
+
             await this.productService.createProduct(payload)
             res.status(200).send({message: "Produto criado com sucesso."})
         } catch(err) {

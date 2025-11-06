@@ -1,4 +1,4 @@
-import connection from '../connection'
+import connection from '../connection.js'
 import express from 'express'
 const router = express.Router()
 

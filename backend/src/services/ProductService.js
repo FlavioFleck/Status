@@ -1,5 +1,5 @@
-import Product from "../models/Product"
-import ProductRepository from "../repositories/ProductRepository"
+import Product from "../models/Product.js"
+import ProductRepository from "../repositories/ProductRepository.js"
 
 export default class ProductService {
     constructor(connection) {
