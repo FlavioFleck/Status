@@ -13,7 +13,7 @@ export default class UserController {
                 userId: payload
             });
         } catch (error) {
-            if(error.message.includes("Email já está em emm uso.")) {
+            if(error.message.includes("Email já está em uso.")) {
                 return res.status(400).send({
                     error: error.message
                 })
@@ -33,7 +33,7 @@ export default class UserController {
             });
         }catch (error) {
             if(error.message.includes("Usuário não encontrado.")) {
-                return res.status(400).send({
+                return res.status(404).send({
                     error: error.message
                 });
             }
@@ -45,14 +45,14 @@ export default class UserController {
 
     deleteUser = async(req, res) => {
         try {
-            const payload = await this.userService.deleteUser(req.params.id);
+            const payload = await this.userService.deleteUser({id: req.params.id});
             return res.status(200).send({
                 message: "Usuário deletado com sucesso!",
                 payload
             })
         } catch(error) {
             if(error.message.includes("Usuário não encontrado.")) {
-                return res.status(400).send({
+                return res.status(404).send({
                     error: error.message
                 });
             }
@@ -67,8 +67,8 @@ export default class UserController {
             const users = await this.userService.getAllUsers();
             return res.status(200).send(users);
         } catch(error) {
-            res.status(500).send({
-                error: "Erro interno servidor."
+            return res.status(500).send({
+                error: "Erro interno no servidor."
             });
         }
     };
@@ -79,7 +79,7 @@ export default class UserController {
             return res.status(200).send(user);
         } catch(error) {
             if(error.message.includes("Usuário não encontrado.")) {
-                return res.status(400).send({
+                return res.status(404).send({
                     error: error.message
                 });
             }

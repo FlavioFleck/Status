@@ -10,12 +10,12 @@ export default class UserService {
         const {name, lastname, email, password} = payload;
         
         const existingUser = await this.userRespository.getByEmail(email);
-        if(existingUser) {
+        if(existingUser.length > 0) {
             throw new Error("Email já está em uso.")
         }
 
         const user  = new User({name, lastname, email, password});
-        const result = await this.user.UserRespository.add(user);
+        const result = await this.userRespository.add(user);
         return result.insertId;
     };
 
@@ -26,7 +26,7 @@ export default class UserService {
         if (!result) {
             throw new Error("Usuário não encontrado.")
         }
-        return result.affectedRows;
+        return result;
     };
 
     updateUser = async(id, payload) =>  {
