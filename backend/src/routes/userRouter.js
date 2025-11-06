@@ -1,8 +1,8 @@
 import express from 'express'
 const router = express.Router()
 
-import connection from '../connection'
-import UserController from '../controllers/UserController'
+import connection from '../connection.js'
+import UserController from '../controllers/UserController.js'
 
 const userController = new UserController(connection)
 
