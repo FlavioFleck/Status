@@ -13,7 +13,7 @@ export default class UserController {
                 userId: payload
             });
         } catch (error) {
-            if(error.message.includes("Email já está em uso.")) {
+            if(error.message.includes("Email já está em uso")) {
                 return res.status(400).send({
                     error: error.message
                 })
@@ -28,11 +28,11 @@ export default class UserController {
         try {
             const payload = await this.userService.updateUser(req.params.id, req.body);
             return res.status(200).send({
-                message: "Usuário atualizado com sucesso", 
-                payload
+                message: "Usuário atualizado com sucesso!", 
+                user: payload
             });
         }catch (error) {
-            if(error.message.includes("Usuário não encontrado.")) {
+            if(error.message.includes("Usuário não encontrado")) {
                 return res.status(404).send({
                     error: error.message
                 });
@@ -45,13 +45,13 @@ export default class UserController {
 
     deleteUser = async(req, res) => {
         try {
-            const payload = await this.userService.deleteUser({id: req.params.id});
+            const payload = await this.userService.deleteUser(req.params.id);
             return res.status(200).send({
                 message: "Usuário deletado com sucesso!",
                 payload
             })
         } catch(error) {
-            if(error.message.includes("Usuário não encontrado.")) {
+            if(error.message.includes("Usuário não encontrado")) {
                 return res.status(404).send({
                     error: error.message
                 });
@@ -78,7 +78,7 @@ export default class UserController {
             const user = await this.userService.getUserById(req.params.id);
             return res.status(200).send(user);
         } catch(error) {
-            if(error.message.includes("Usuário não encontrado.")) {
+            if(error.message.includes("Usuário não encontrado")) {
                 return res.status(404).send({
                     error: error.message
                 });

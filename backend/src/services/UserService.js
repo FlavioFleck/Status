@@ -1,5 +1,6 @@
 import User from "../models/User.js";
-import UserRespository from "../repositories/UserRespository.js";
+import bcrypt from "bcrypt";
+import UserRespository from "../repositories/UserRepository.js";
 
 export default class UserService {
     constructor(connection) {
@@ -7,16 +8,17 @@ export default class UserService {
     }
     
     createUser = async(payload) => {
-        const {name, lastname, email, password} = payload;
+        const {name, lastname, email, password, role = "client"} = payload;
         
         const existingUser = await this.userRespository.getByEmail(email);
-        if(existingUser.length > 0) {
+        if(existingUser) {
             throw new Error("Email já está em uso.")
         }
 
-        const user  = new User({name, lastname, email, password});
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const user  = new User({name, lastname, email, password: hashedPassword, role});
         const result = await this.userRespository.add(user);
-        return result.insertId;
+        return result;
     };
 
     deleteUser  = async(payload) => {

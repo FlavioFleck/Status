@@ -6,7 +6,7 @@ export default class UserRespository {
     async add(user){
         const query = `
             INSERT INTO users(name, lastname, email, password, role)
-                VALUES (?, ?, ?, MD5(?), ?);
+                VALUES (?, ?, ?, ?, ?);
         `
 
         const [info] = await this.connection.query(query, [
@@ -21,7 +21,7 @@ export default class UserRespository {
 
     async delete(id){
         const query = `
-            DELETE FROM uers
+            DELETE FROM users
                 WHERE id = ?
         `
         const [info] = await this.connection.query(query, [id]);
@@ -38,7 +38,7 @@ export default class UserRespository {
             WHERE id = ?;
         `
 
-        const [info] = await this.connection.query(query [
+        const [info] = await this.connection.query(query, [
             data.name,
             data.lastname,
             data.email,
