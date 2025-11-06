@@ -1,16 +1,31 @@
+import Product from "../models/Product"
+import ProductRepository from "../repositories/ProductRepository"
+
 export default class ProductService {
     constructor(connection) {
+        this.productRepository = new ProductRepository(connection)
     }
 
-    createProduct() {}
+    async createProduct(payload) {
+        const {name, description, price, stock} = payload
+        const product = new Product(name, description, price, stock)
+        
+        const existingProduct = await this.productRepository.getByName(name)
+        if(existingProduct.length > 0) {
+            throw new Error("Produto já existente!")
+        }
 
-    deleteProduct(){}
+        const result = await this.productRepository.add(product)
+        return result.insertId
+    }
 
-    updateProduct(){}
+    async deleteProduct(){}
 
-    getProductById(){}
+    async updateProduct(){}
 
-    getAllProduct(){}
+    async getProductById(){}
+
+    async getAllProduct(){}
 
 
 }
