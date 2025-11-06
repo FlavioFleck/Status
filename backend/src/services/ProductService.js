@@ -7,16 +7,16 @@ export default class ProductService {
     }
 
     async createProduct(payload) {
-        const {name, description, price, stock} = payload
-        const product = new Product(name, description, price, stock)
-        
+        const { name, description, price, stock } = payload
         const existingProduct = await this.productRepository.getByName(name)
+        console.log(existingProduct)
         if(existingProduct.length > 0) {
             throw new Error("Produto já existente!")
         }
 
+        const product = new Product(name, description, price, stock)
         const result = await this.productRepository.add(product)
-        return result.insertId
+        return result
     }
 
     async deleteProduct(){}

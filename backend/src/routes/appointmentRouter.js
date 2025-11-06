@@ -1,8 +1,8 @@
 import express from 'express'
 const router = express.Router()
 
-import connection from '../connection'
-import AppointmentController from '../controllers/AppointmentController'
+import connection from '../connection.js'
+import AppointmentController from '../controllers/AppoitmentController.js'
 
 const appointmentController = new AppointmentController(connection)
 

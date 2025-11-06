@@ -4,15 +4,15 @@ export default class ProductRepository {
     }
 
     async add(product) {
-        const query = "INSERT INTO products VALUE (?, ?, ?, ?)"
-        const [info] = await his.connection.query(query,[
+        const query = "INSERT INTO products(name, description, price, stock) VALUE (?, ?, ?, ?)"
+        const [info] = await this.connection.query(query, [
             product.name,
             product.description,
             product.price,
             product.stock
         ])
 
-        return info
+        return info.insertId
     }
     
     async delete(id) {}
@@ -25,7 +25,7 @@ export default class ProductRepository {
 
     async getByName(name) {
         const query = "SELECT * FROM products WHERE name = ?"
-        const [info] = this.connection.query(query, [name])
+        const [info] = await this.connection.query(query, [name])
         return info
     }
 }
