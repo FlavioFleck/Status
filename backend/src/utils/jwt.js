@@ -9,7 +9,9 @@ export function generateToken(user) {
     const payload = { 
         sub: String(user.id),    
         email: user.email,
-        role: user.role
+        role: user.role,
+        name: user.name,
+        lastname: user.lastname
     };  
 
     const token = jwt.sign(payload, SECRET, {
