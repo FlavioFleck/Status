@@ -2,7 +2,7 @@ import UserService from "../services/UserService.js";
 
 export default class UserController { 
     constructor(connection) {
-        this.user.userService = new UserService(connection)
+        this.userService = new UserService(connection)
     }
 
     createUser = async(req, res) => {
@@ -13,17 +13,79 @@ export default class UserController {
                 userId: payload
             });
         } catch (error) {
-            return res.status(400).send({
-                error: "Solicitação inválida!"
+            if(error.message.includes("Email já está em emm uso.")) {
+                return res.status(400).send({
+                    error: error.message
+                })
+            }
+            return res.status(500).send({
+                error: "Erro interno no servidor."
             });
         }
     };
 
     updateUser = async(req, res) => {
-
-    }
+        try {
+            const payload = await this.userService.updateUser(req.params.id, req.body);
+            return res.status(200).send({
+                message: "Usuário atualizado com sucesso", 
+                payload
+            });
+        }catch (error) {
+            if(error.message.includes("Usuário não encontrado.")) {
+                return res.status(400).send({
+                    error: error.message
+                });
+            }
+            return res.status(500).send({
+                error: "Erro interno no servidor."
+            });
+        }
+    };
 
     deleteUser = async(req, res) => {
-
+        try {
+            const payload = await this.userService.deleteUser(req.params.id);
+            return res.status(200).send({
+                message: "Usuário deletado com sucesso!",
+                payload
+            })
+        } catch(error) {
+            if(error.message.includes("Usuário não encontrado.")) {
+                return res.status(400).send({
+                    error: error.message
+                });
+            }
+            return res.status(500).send({
+                error: "Erro interno no servidor."
+            })
+        }
     }
+
+    getAllUsers = async(req, res) => {
+        try {
+            const users = await this.userService.getAllUsers();
+            return res.status(200).send(users);
+        } catch(error) {
+            res.status(500).send({
+                error: "Erro interno servidor."
+            });
+        }
+    };
+
+    getUserById = async(req, res) => {
+        try {
+            const user = await this.userService.getUserById(req.params.id);
+            return res.status(200).send(user);
+        } catch(error) {
+            if(error.message.includes("Usuário não encontrado.")) {
+                return res.status(400).send({
+                    error: error.message
+                });
+            }
+            return res.status(500).send({
+                error: "Erro interno no servidor."
+            })
+        }
+    };
 }
