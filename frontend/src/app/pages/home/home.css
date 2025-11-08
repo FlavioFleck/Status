@@ -1,10 +1,24 @@
+/* === BASE === */
 :host {
-  --cor-marrom-escuro: #7E3E3B; /* #713936, #42201E */
-  --cor-texto: #7E3E3B;            
+  --cor-marrom-escuro: #7E3E3B;
+  --cor-texto: #7E3E3B;
   --font-logo: 'Staatliches', serif;
   --font-body: 'Josefin Slab', serif;
 }
 
+/* === SCROLL ANIMATIONS === */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== HERO SECTION ===== */
 .hero-section {
   display: flex;
   align-items: center;
@@ -13,12 +27,16 @@
   min-height: calc(100vh - 360px);
   padding: 20px 3%;
   position: relative;
+  overflow: hidden;
   box-sizing: border-box;
+  animation: fadeIn 1.2s ease-out;
 }
 
 .hero-content {
   max-width: 650px;
   z-index: 2;
+  animation: slideUp 1.3s ease-out forwards;
+  animation-delay: 0.3s;
 }
 
 .hero-content h1 {
@@ -28,6 +46,9 @@
   color: #42201E;
   line-height: 1.2;
   margin-block: 0 20px;
+  opacity: 0;
+  animation: fadeSlideLeft 1.2s ease forwards;
+  animation-delay: 0.4s;
 }
 
 .hero-content p {
@@ -36,9 +57,11 @@
   color: var(--cor-texto);
   margin-bottom: 30px;
   max-width: 460px;
+  opacity: 0;
+  animation: fadeSlideLeft 1.2s ease forwards;
+  animation-delay: 0.7s;
 }
 
-/* botão de registro */
 .hero-content .cta-button {
   display: inline-block;
   background-color: var(--cor-marrom-escuro);
@@ -49,20 +72,27 @@
   font-weight: 600;
   text-decoration: none;
   border-radius: 4px;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeSlideLeft 1.2s ease forwards;
+  animation-delay: 1s;
 }
 
 .hero-content .cta-button:hover {
   background-color: #713936;
+  transform: translateY(-2px);
 }
 
-/* estilo ícones sociais */
+/* Ícones sociais */
 .social-icons {
   position: absolute;
   right: 2rem;
   bottom: 1rem;
   display: flex;
   gap: 1rem;
+  opacity: 0;
+  animation: fadeIn 1.2s ease forwards;
+  animation-delay: 1.3s;
 }
 
 .social-icons svg {
@@ -70,38 +100,38 @@
   height: 36px;
   fill: #7E3E3B;
   cursor: pointer;
-  transition: 0.3s;
+  transition: transform 0.3s ease, opacity 0.3s;
 }
 
 .social-icons svg:hover {
   opacity: 0.7;
+  transform: scale(1.1);
 }
 
-/* lado esquerdo: imagem */
+/* ===== SERVIÇOS ===== */
 .services-container-section {
   display: flex;
   gap: 50px;
-  padding: 100px 4%; 
-  overflow: hidden; 
+  padding: 100px 4%;
+  overflow: hidden;
 }
 
 .image-services-box {
   position: relative;
-  flex: 1.3; 
+  flex: 1.3;
   max-width: 600px;
-  margin: 30px; 
+  margin: 30px;
 }
 
 .image-services-box img {
   width: 100%;
-  display: block;
-  position: relative; /* precisa do position para o quadrado marrom fica atras da imagem */
+  position: relative;
   z-index: 2;
+  border-radius: 8px;
 }
 
-/* sombra/quadrado maior atrás */
 .image-background-shadow {
-  position: absolute; 
+  position: absolute;
   bottom: 36px;
   left: 36px;
   width: 100%;
@@ -110,12 +140,9 @@
   z-index: 1;
 }
 
-/* quadrados decorativos (pequenos) */
 .image-services-box .square {
-  position: absolute; 
+  position: absolute;
   background-color: #42201E;
-  width: 120px;
-  height: 120px;
   z-index: 3;
 }
 
@@ -133,8 +160,7 @@
   right: -80px;
 }
 
-
-/* lado direito: serviços */
+/* Conteúdo de serviços */
 .services-content-box {
   flex: 1;
   display: flex;
@@ -143,37 +169,33 @@
   margin-top: 100px;
 }
 
-/* titulo */
 .services-content-box h1 {
   font-family: var(--font-body);
   font-size: 3rem;
   color: #42201E;
-  margin-block: 0 30px; 
+  margin-block: 0 30px;
 }
 
-/* boxes */
 .services-content-box .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  justify-content: center;
   gap: 20px;
   width: 100%;
   margin-bottom: 30px;
 }
 
-/* fundo box */
 .services-content-box .card {
   background-color: #ffffff;
   padding: 25px;
   text-align: center;
-  border: 1px solid #f0f0f0; 
+  border: 1px solid #f0f0f0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   min-height: 350px;
 }
 
 .services-content-box .card:hover {
-  transform: translateY(-2px) scale(1.01); 
+  transform: translateY(-2px) scale(1.02);
   box-shadow: 0 8px 20px rgba(24, 17, 17, 0.15);
 }
 
@@ -191,7 +213,6 @@
   margin: 0;
 }
 
-/* botão "ver mais" */
 .services-content-box .cta-button {
   display: inline-block;
   background-color: var(--cor-marrom-escuro);
@@ -204,22 +225,21 @@
   border-radius: 4px;
   transition: background-color 0.3s ease;
   align-self: center;
-  width: auto;
 }
 
 .services-content-box .cta-button:hover {
   background-color: #713636;
 }
 
-/* estilos sobre nós */
+/* ===== SOBRE NÓS ===== */
 .about-container-section {
   display: flex;
-  align-items: flex-start; 
+  align-items: flex-start;
   justify-content: center;
   gap: 200px;
-  padding: 100px 8%; 
-  background-color: var(--cor-fundo-rosa-claro); 
-  overflow: hidden; 
+  padding: 100px 8%;
+  background-color: var(--cor-fundo-rosa-claro);
+  overflow: hidden;
 }
 
 .about-content-box {
@@ -242,35 +262,51 @@
   margin-bottom: 25px;
 }
 
-/* imagem modelo */
 .about-image-box {
   position: relative;
-  max-width: 600px; /* tamanho/limite da imagem */
+  max-width: 600px;
 }
 
 .about-image-box img {
   width: 100%;
-  display: block;
-  position: relative; 
+  position: relative;
   z-index: 2;
+  border-radius: 8px;
 }
 
-.about-image-box .top-left {
-  position: absolute;
-  background-color: var(--cor-marrom-escuro);
-  width: 54%; /* largura do quadrado superior */
-  height: 60%; /* altura do quadrado superior */
-  top: -40px;
-  left: -40px;
-  z-index: 1;
-}
-
+.about-image-box .top-left,
 .about-image-box .bottom-right {
   position: absolute;
   background-color: var(--cor-marrom-escuro);
+  z-index: 1;
+}
+
+.about-image-box .top-left {
+  top: -40px;
+  left: -40px;
   width: 54%;
   height: 60%;
+}
+
+.about-image-box .bottom-right {
   bottom: -40px;
   right: -40px;
-  z-index: 1;
+  width: 54%;
+  height: 60%;
+}
+
+/* ===== KEYFRAMES ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(60px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
 }
