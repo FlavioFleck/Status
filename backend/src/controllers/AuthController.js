@@ -1,10 +1,12 @@
 import { generateToken } from "../utils/jwt.js";
 import bcrypt from "bcrypt";
 import UserRepository from "../repositories/UserRepository.js";
+import UserService from "../services/UserService.js";
 
 export default class AuthController {
     constructor(connection) {
         this.userRepository = new UserRepository(connection)
+        this.userService = new UserService(connection)
     }
 
     login = async (req, res) => {
@@ -37,6 +39,43 @@ export default class AuthController {
                 token
             });
         } catch (error) {
+            console.error(error);
+            return res.status(500).send({
+                error: "Erro interno no servidor."
+            });
+        }
+    };
+
+    register = async (req, res) => {
+        try {
+            const { name, lastname, email, password, role = "client" } = req.body
+
+            const newUserId = await this.userService.createUser({
+                name,
+                lastname,
+                email,
+                password,
+                role
+            });
+
+            const token = generateToken({
+                id: newUserId,
+                email,
+                role,
+                name,
+                lastname
+            });
+
+            return res.status(201).send({
+                message: "Usuário criado com sucesso!"
+            });
+        } catch (error) {
+            if (error.message.includes("Email já está em uso")) {
+                return res.status(400).send({
+                    error: error.message
+                });
+            }
+
             console.error(error);
             return res.status(500).send({
                 error: "Erro interno no servidor."
