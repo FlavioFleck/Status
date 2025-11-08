@@ -10,7 +10,6 @@ import { TimeSlotListComponent } from '../../booking/time-slot-list/time-slot-li
   standalone: true,
   imports: [
     CommonModule,
-    HeaderComponent,
     WeekNavigatorComponent,
     ProfessionalListComponent,
     TimeSlotListComponent
