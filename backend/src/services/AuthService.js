@@ -2,7 +2,6 @@ import User from "../models/User.js";
 import { generateToken } from "../utils/jwt.js";
 import bcrypt from "bcrypt";
 import UserRespository from "../repositories/UserRepository.js";
-import User from "../models/User.js";
 
 export default class AuthService {
     constructor(connection) {

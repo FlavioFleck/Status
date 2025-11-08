@@ -4,7 +4,7 @@ import UserRepository from "../repositories/UserRepository.js";
 
 export default class UserService {
     constructor(connection) {
-        this.userRespository = new UserRepository(connection);
+        this.userRepository = new UserRepository(connection);
     }
     
     createUser = async(payload) => {
@@ -24,7 +24,7 @@ export default class UserService {
     deleteUser  = async(payload) => {
         const {id} = payload;
 
-        const result = await this.userRepository.delete(id);
+        const result = await this.userRepository.delete(payload);
         if (!result) {
             throw new Error("Usuário não encontrado.")
         }
@@ -36,9 +36,18 @@ export default class UserService {
         if(!existingUser) {
             throw new Error("Usuário não encontrado.")
         }
+
+        let updatedData = {
+            ...existingUser, ...payload
+        };
+
+        if(payload.password) {
+            const hashedPassword = await bcrypt.hash(payload.password, 10);
+            updatedData.password = hashedPassword;
+        }
+
         const updatedUser = new User({
-            ...existingUser,
-            ...payload
+            updatedData
         });
 
         const result = await this.userRepository.update(id, updatedUser)
@@ -46,10 +55,7 @@ export default class UserService {
             throw new Error("Falha ao atualizar dados do usuário!");
         }
 
-        return {
-            id,
-            ...updatedUser
-        }
+        return updatedData;
     };
 
     getAllUsers = async() => {
