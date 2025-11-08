@@ -97,3 +97,21 @@
   height: 24px;
   fill: currentColor;
 }
+
+.entrar-button {
+  position: absolute;
+  right: 5%;
+  top: 30px;
+  background-color: #7E3E3B;
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 24px;
+  border-radius: 4px;
+  transition: background-color 0.3 ease;
+}
+
+.entrar-button:hover {
+  background-color: #713936;
+}

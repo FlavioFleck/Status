@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common'; // necessário p/ *ngFor, [ngClass], etc
-import { HeaderComponent } from '../../layout/header/header';
 import { WeekNavigatorComponent } from '../../booking/week-navigator/week-navigator';
 import { ProfessionalListComponent } from '../../booking/professional-list/professional-list';
 import { TimeSlotListComponent } from '../../booking/time-slot-list/time-slot-list';

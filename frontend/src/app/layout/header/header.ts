@@ -11,5 +11,5 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrls: ['./header.css']
 })
 export class HeaderComponent {
-
+  isLoggedIn: boolean = false;
 }

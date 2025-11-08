@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&family=Josefin+Slab:wght@300;400;600&display=swap');
+
 body {
     margin: 0;
     font-family: 'Josefin Slab';
@@ -6,11 +8,7 @@ body {
 
 html {
     background-color: #fefcfc; 
-    background-image: linear-gradient(
-    to bottom,
-    #FFFFFF,
-    #FEC7C5
-    );
+    background-image: linear-gradient(to bottom,#FFFFFF,#FEC7C5 20%);
     min-height: 100vh;
     background-repeat: no-repeat;
     font-size: 18px;
