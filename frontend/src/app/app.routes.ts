@@ -3,6 +3,7 @@ import { LayoutComponent } from './layout/layout';
 import { BookingComponent } from './pages/booking/booking';
 import { HomeComponent } from './pages/home/home';
 import { LoginComponent } from './pages/login/login';
+import { RegisterComponent } from './pages/register/register';
 
 export const routes: Routes = [
     {
@@ -11,7 +12,8 @@ export const routes: Routes = [
         children: [
             { path: '', component: HomeComponent },
             { path: 'booking', component: BookingComponent },
-            { path: 'login', component: LoginComponent }
+            { path: 'login', component: LoginComponent },
+            { path: 'register', component: RegisterComponent }
         ]
     }
 ];

@@ -1,0 +1,118 @@
+/* ====== RESET E ESTILOS GERAIS ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ====== BODY ====== */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f6e2e2;
+  color: #333;
+  overflow: hidden; /* Impede rolagem na página */
+  height: 100vh; /* Altura total da tela */
+}
+
+/* ====== CONTAINER PRINCIPAL ====== */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* ← centraliza verticalmente */
+  height: 100vh;
+  width: 100%;
+  padding-top: 0; /* remove o espaçamento extra do topo */
+}
+
+
+/* ====== FORMULÁRIO DE REGISTRO ====== */
+.register-container {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.register-container h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #8B4D45;
+  font-weight: 600;
+}
+
+/* ====== GRUPOS DE INPUT ====== */
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 20px 15px 10px;
+  border: 1px solid #444;
+  border-radius: 2px;
+  background: #fafafa;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+/* Label ligeiramente mais baixo, com fundo branco */
+.input-group label {
+  position: absolute;
+  top: -6px; /* antes era -10px → agora mais alinhado com a linha */
+  left: 10px;
+  background-color: #fff;
+  padding: 0 5px;
+  font-size: 14px;
+  color: #222;
+  font-weight: bold;
+}
+
+.input-group input::placeholder {
+  color: #999;
+}
+
+/* Foco no campo */
+.input-group:focus-within input {
+  border-color: #8B4D45;
+  outline: none;
+  background-color: #fff;
+}
+
+/* ====== BOTÃO DE REGISTRO ====== */
+.btn-register {
+  background-color: #8B4D45;
+  color: #fff;
+  padding: 18px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-register:hover {
+  background-color: #7c3c30;
+}
+
+/* ====== LINK DE LOGIN ====== */
+.login-link {
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.login-link a {
+  color: #8B4D45;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
