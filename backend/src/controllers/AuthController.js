@@ -16,7 +16,7 @@ export default class AuthController {
                 token
             });
         } catch (error) {
-            if(error.message.includes("Credenciais inválidas")){
+            if(error.message.includes("Senha incorreta") || error.message.includes("Usuário não encontrado")){
                 return res.status(401).send({
                     error: error.message
                 });
