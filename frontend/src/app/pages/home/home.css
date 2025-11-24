@@ -1,4 +1,4 @@
-/* === BASE === */
+/* base */
 :host {
   --cor-marrom-escuro: #7E3E3B;
   --cor-texto: #7E3E3B;
@@ -6,7 +6,7 @@
   --font-body: 'Josefin Slab', serif;
 }
 
-/* === SCROLL ANIMATIONS === */
+/* scroll animations */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -18,7 +18,7 @@
   transform: translateY(0);
 }
 
-/* ===== HERO SECTION ===== */
+/* hero section */
 .hero-section {
   display: flex;
   align-items: center;
@@ -108,7 +108,7 @@
   transform: scale(1.1);
 }
 
-/* ===== SERVIÇOS ===== */
+/* serviços */
 .services-container-section {
   display: flex;
   gap: 50px;
@@ -160,7 +160,7 @@
   right: -80px;
 }
 
-/* Conteúdo de serviços */
+/* conteúdo de serviços */
 .services-content-box {
   flex: 1;
   display: flex;
@@ -231,7 +231,7 @@
   background-color: #713636;
 }
 
-/* ===== SOBRE NÓS ===== */
+/* sobre nós */
 .about-container-section {
   display: flex;
   align-items: flex-start;
@@ -295,7 +295,7 @@
   height: 60%;
 }
 
-/* ===== KEYFRAMES ===== */
+/* keyframes */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
