@@ -7,7 +7,7 @@
 }
 
 /* scroll animations */
-.reveal {
+/* .reveal {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 1s ease, transform 1s ease;
@@ -16,7 +16,7 @@
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
-}
+} */
 
 /* hero section */
 .hero-section {
@@ -107,6 +107,61 @@
   opacity: 0.7;
   transform: scale(1.1);
 }
+
+.products-preview-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.products-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.products-header h2 {
+  font-family: var(--font-body);
+  font-size: 2.2rem;
+  color: #42201E;
+  margin: 0;
+}
+
+/* container de rolagem */
+.products-scroll-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 8%;
+  width: 100%;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.3s;
+}
+
+.products-scroll-container:hover {
+  scrollbar-color: var(--cor-marrom-escuro) transparent;
+}
+
+.products-scroll-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.products-scroll-container::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+/* quando o mouse passa pelo container, a cor aparece */
+.products-scroll-container:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(126, 62, 59, 0.4); 
+}
+
+
+
 
 /* serviços */
 .services-container-section {
