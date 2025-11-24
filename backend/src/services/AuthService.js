@@ -1,11 +1,10 @@
 import User from "../models/User.js";
 import { generateToken } from "../utils/jwt.js";
 import bcrypt from "bcrypt";
-import UserRespository from "../repositories/UserRepository.js";
 
 export default class AuthService {
-    constructor(connection) {
-        this.userRespository = new UserRespository(connection);
+    constructor(userRespository) {
+        this.userRespository = userRespository;
     }
 
     login = async (email, password) => {

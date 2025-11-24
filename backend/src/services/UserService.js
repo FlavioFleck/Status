@@ -1,10 +1,9 @@
 import User from "../models/User.js";
 import bcrypt from "bcrypt";
-import UserRepository from "../repositories/UserRepository.js";
 
 export default class UserService {
-    constructor(connection) {
-        this.userRepository = new UserRepository(connection);
+    constructor(userRepository) {
+        this.userRepository = userRepository
     }
     
     createUser = async(payload) => {

@@ -1,10 +1,15 @@
 import express from 'express'
 const router = express.Router()
 
+
 import connection from '../connection.js'
+import UserRespository from '../repositories/UserRepository.js'
+import UserService from '../services/UserService.js'
 import UserController from '../controllers/UserController.js'
 
-const userController = new UserController(connection)
+const userRepository = new UserRespository(connection)
+const userService = new UserService(userRepository)
+const userController = new UserController(userService)
 
 
 router.post('/create', userController.createUser)

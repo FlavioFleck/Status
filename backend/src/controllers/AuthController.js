@@ -1,8 +1,6 @@
-import AuthService from "../services/AuthService.js";
-
 export default class AuthController {
-    constructor(connection) {
-        this.authService = new AuthService(connection);
+    constructor(authService) {
+        this.authService = authService
     }
 
     login = async (req, res) => {

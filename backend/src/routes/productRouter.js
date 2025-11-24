@@ -1,10 +1,16 @@
 import express from 'express'
 const router = express.Router()
 
-import ProductController from '../controllers/ProductController.js'
-import connection from '../connection.js'
 
-const productController = new ProductController(connection)
+import connection from '../connection.js'
+import ProductRespository from "../repositories/ProductRepository.js"
+import ProductService from '../services/ProductService.js'
+import ProductController from '../controllers/ProductController.js'
+
+const productRepository = new ProductRespository(connection)
+const productService = new ProductService(productRepository)
+const productController = new ProductController(productService)
+
 
 router.post("/create", productController.createProduct)
 router.delete("/delete/:id", productController.deleteProduct)

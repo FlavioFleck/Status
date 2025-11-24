@@ -1,8 +1,6 @@
-import UserService from "../services/UserService.js";
-
 export default class UserController { 
-    constructor(connection) {
-        this.userService = new UserService(connection)
+    constructor(userService) {
+        this.userService = userService
     }
 
     createUser = async(req, res) => {

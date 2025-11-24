@@ -1,9 +1,8 @@
 import Product from "../models/Product.js"
-import ProductRepository from "../repositories/ProductRepository.js"
 
 export default class ProductService {
-    constructor(connection) {
-        this.productRepository = new ProductRepository(connection)
+    constructor(productRepository) {
+        this.productRepository = productRepository
     }
 
     async createProduct(payload) {

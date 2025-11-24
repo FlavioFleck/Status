@@ -1,8 +1,6 @@
-import AppointmentRespository from "../repositories/AppointmentRepository.js";
-
 export default class AppointmentController { 
-    constructor(connection) {
-        this.userRepository = new AppointmentRespository(connection)
+    constructor(appointmentService) {
+        this.appointmentRepository = appointmentService
     }
 
     createAppointment = async(req, res) => {
