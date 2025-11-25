@@ -1,13 +1,12 @@
 /* base */
 :host {
-  --cor-marrom-escuro: #7E3E3B;
   --cor-texto: #7E3E3B;
   --font-logo: 'Staatliches', serif;
   --font-body: 'Josefin Slab', serif;
 }
 
 /* scroll animations */
-/* .reveal {
+.reveal {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 1s ease, transform 1s ease;
@@ -16,7 +15,7 @@
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
-} */
+}
 
 /* hero section */
 .hero-section {
@@ -64,7 +63,7 @@
 
 .hero-content .cta-button {
   display: inline-block;
-  background-color: var(--cor-marrom-escuro);
+  background-color: var(--cor-texto);
   color: #ffffff;
   padding: 12px 30px;
   font-family: var(--font-body);
@@ -144,7 +143,7 @@
 }
 
 .products-scroll-container:hover {
-  scrollbar-color: var(--cor-marrom-escuro) transparent;
+  scrollbar-color: var(--cor-texto) transparent;
 }
 
 .products-scroll-container::-webkit-scrollbar-track {
@@ -214,7 +213,7 @@
 .product-card h3 {
   font-family: var(--font-body);
   font-size: 1.1rem;
-  color: var(--cor-marrom-escuro);
+  color: var(--cor-texto);
   margin: 0 0 10px 0;
   font-weight: 600;
   line-height: 1.2;
@@ -233,9 +232,34 @@
   overflow: hidden;
 }
 
+/* botão produtos */
+.products-footer {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.cta-button-outline {
+  display: inline-block;
+  background-color: var(--cor-texto);
+  color: #ffffff;
+  padding: 12px 30px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  align-self: center;
+}
+
+.cta-button-outline:hover {
+  background-color: #713636;
+}
+
 /* serviços */
 .services-container-section {
   display: flex;
+  align-items: center;
   gap: 50px;
   padding: 100px 4%;
   overflow: hidden;
@@ -261,7 +285,7 @@
   left: 36px;
   width: 100%;
   height: 100%;
-  background-color: var(--cor-marrom-escuro);
+  background-color: var(--cor-texto);
   z-index: 1;
 }
 
@@ -291,14 +315,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+  margin-bottom: 50px;
 }
 
 .services-content-box h1 {
   font-family: var(--font-body);
   font-size: 3rem;
   color: #42201E;
-  margin-block: 0 30px;
+  margin-block: 0 40px;
 }
 
 .services-content-box .cards {
@@ -306,7 +330,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 
 .services-content-box .card {
@@ -338,23 +362,6 @@
   margin: 0;
 }
 
-.services-content-box .cta-button {
-  display: inline-block;
-  background-color: var(--cor-marrom-escuro);
-  color: #ffffff;
-  padding: 12px 30px;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-  align-self: center;
-}
-
-.services-content-box .cta-button:hover {
-  background-color: #713636;
-}
 
 /* sobre nós */
 .about-container-section {
@@ -402,7 +409,7 @@
 .about-image-box .top-left,
 .about-image-box .bottom-right {
   position: absolute;
-  background-color: var(--cor-marrom-escuro);
+  background-color: var(--cor-texto);
   z-index: 1;
 }
 
