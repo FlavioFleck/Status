@@ -3,31 +3,26 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Josefin Slab';
 }
 
-/* ====== BODY ====== */
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f6e2e2;
-  color: #333;
-  overflow: hidden; /* Impede rolagem na página */
-  height: 100vh; /* Altura total da tela */
+  overflow: hidden;
+  height: 100vh;
 }
 
-/* ====== CONTAINER PRINCIPAL ====== */
 main {
   display: flex;
   justify-content: center;
-  align-items: center; /* ← centraliza verticalmente */
-  height: 100vh;
+  align-items: center;
   width: 100%;
-  padding-top: 0; /* remove o espaçamento extra do topo */
+  height: calc(100vh - 160px);
+  padding: 0;
 }
 
-
-/* ====== FORMULÁRIO DE REGISTRO ====== */
+/* formulário de registro */
 .register-container {
-  background-color: #fff;
+  background-color: #fffbfb;
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -39,11 +34,11 @@ main {
 .register-container h2 {
   font-size: 28px;
   margin-bottom: 30px;
-  color: #8B4D45;
+  color: #42201E;
   font-weight: 600;
 }
 
-/* ====== GRUPOS DE INPUT ====== */
+/* inputs */
 .input-group {
   position: relative;
   margin-bottom: 25px;
@@ -53,22 +48,21 @@ main {
 .input-group input {
   width: 100%;
   padding: 20px 15px 10px;
-  border: 1px solid #444;
+  border: 1px solid #8E5250;
   border-radius: 2px;
   background: #fafafa;
   font-size: 16px;
   transition: border-color 0.3s ease;
 }
 
-/* Label ligeiramente mais baixo, com fundo branco */
 .input-group label {
   position: absolute;
   top: -6px; /* antes era -10px → agora mais alinhado com a linha */
   left: 10px;
   background-color: #fff;
   padding: 0 5px;
-  font-size: 14px;
-  color: #222;
+  font-size: 16px;
+  color: #42201E;
   font-weight: bold;
 }
 
@@ -76,16 +70,15 @@ main {
   color: #999;
 }
 
-/* Foco no campo */
 .input-group:focus-within input {
   border-color: #8B4D45;
   outline: none;
   background-color: #fff;
 }
 
-/* ====== BOTÃO DE REGISTRO ====== */
+/* botão de registro */
 .btn-register {
-  background-color: #8B4D45;
+  background-color: #7E3E3B;
   color: #fff;
   padding: 18px 20px;
   border: none;
@@ -98,17 +91,17 @@ main {
 }
 
 .btn-register:hover {
-  background-color: #7c3c30;
+  background-color: #713936;
 }
 
-/* ====== LINK DE LOGIN ====== */
+/* link de login */
 .login-link {
   font-size: 16px;
   margin-top: 20px;
 }
 
 .login-link a {
-  color: #8B4D45;
+  color: #7E3E3B;
   text-decoration: none;
   font-weight: bold;
 }

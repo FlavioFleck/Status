@@ -18,7 +18,7 @@ import { TimeSlotListComponent } from '../../booking/time-slot-list/time-slot-li
 })
 export class BookingComponent {
 
-// oi backend, vc precisa apagar essa parte e substituir por uma chamada de API rs aqui é só o mockado
+// substituir por uma chamada de API
 
   public weekDays: any[] = [
     { name: 'Seg', num: '03' },

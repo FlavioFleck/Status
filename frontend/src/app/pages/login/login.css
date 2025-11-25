@@ -1,33 +1,30 @@
-/* ====== RESET E ESTILOS GERAIS ====== */
+/* reset e estilos gerais */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Josefin Slab';
 }
 
-/* ====== BODY ====== */
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f6e2e2;
-  color: #333;
-  overflow: hidden; /* Impede rolagem */
+  overflow: hidden;
   height: 100vh;
 }
 
-/* ====== CONTAINER PRINCIPAL ====== */
+/* container principal */
 main {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 100vh;
   width: 100%;
-  padding-top: 100px;
-  padding-bottom: 80px; /* respiro inferior */
+  height: calc(100vh - 160px);
+  padding-top: 110px;
+  padding-bottom: 80px;
 }
 
-/* ====== CONTAINER DE LOGIN ====== */
+/* container login */
 .login-container {
-  background-color: #fff;
+  background-color: #fffbfb;
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -39,11 +36,11 @@ main {
 .login-container h2 {
   font-size: 28px;
   margin-bottom: 30px;
-  color: #8B4D45;
+  color: #42201E;
   font-weight: 600;
 }
 
-/* ====== CAMPOS DE INPUT (ESTILO IGUAL AO REGISTRO) ====== */
+/* campos de input */
 .input-group {
   position: relative;
   margin-bottom: 25px;
@@ -53,7 +50,7 @@ main {
 .input-group input {
   width: 100%;
   padding: 20px 15px 10px;
-  border: 1px solid #444;
+  border: 1px solid #8E5250;
   border-radius: 2px;
   background: #fafafa;
   font-size: 16px;
@@ -66,12 +63,12 @@ main {
 
 .input-group label {
   position: absolute;
-  top: -6px; /* ligeiramente mais baixo que o padrão */
+  top: -6px;
   left: 10px;
   background-color: #fff;
   padding: 0 5px;
-  font-size: 14px;
-  color: #222;
+  font-size: 16px;
+  color: #42201E;
   font-weight: bold;
 }
 
@@ -81,9 +78,9 @@ main {
   background-color: #fff;
 }
 
-/* ====== BOTÃO DE LOGIN ====== */
+/* botão de login */
 .btn-login {
-  background-color: #8B4D45;
+  background-color: #7E3E3B;
   color: #fff;
   padding: 18px 20px;
   border: none;
@@ -96,17 +93,17 @@ main {
 }
 
 .btn-login:hover {
-  background-color: #7c3c30;
+  background-color: #713936;
 }
 
-/* ====== LINK DE REGISTRO ====== */
+/* link de registro */
 .registro {
   font-size: 16px;
   margin-top: 20px;
 }
 
 .registro a {
-  color: #8B4D45;
+  color: #7E3E3B;
   text-decoration: none;
   font-weight: bold;
 }
