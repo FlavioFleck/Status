@@ -7,11 +7,12 @@ export default class AuthController {
         try {
             const { email, password } = req.body;
 
-            const { token } = await this.authService.login(email, password);
+            const { token, user } = await this.authService.login(email, password);
 
             return res.status(200).send({
                 message: "Login realizado com sucesso!",
-                token
+                token,
+                user
             });
         } catch (error) {
             if(error.message.includes("Senha incorreta") || error.message.includes("Usuário não encontrado")){

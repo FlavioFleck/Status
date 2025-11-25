@@ -35,7 +35,7 @@ export class LoginComponent {
     this.authService.login(payload).subscribe({
       next: (res: any) => {
         console.log('Login realizado', res);
-        localStorage.setItem('token', res.token);
+        this.authService.setSession(res.token, res.user);
         alert("Logado com sucesso!");
         this.router.navigate(['/']);
       },
