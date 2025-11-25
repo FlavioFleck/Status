@@ -12,10 +12,10 @@ const productService = new ProductService(productRepository)
 const productController = new ProductController(productService)
 
 
-router.post("/create", productController.createProduct)
-router.delete("/delete/:id", productController.deleteProduct)
-router.put("/update/:id", productController.updateProduct)
-router.get("/getAll", productController.getAllProducts)
-router.get("/get/:id", productController.getProductById)
+// router.post("/create", productController.createProduct)
+// router.delete("/delete/:id", productController.deleteProduct)
+// router.put("/update/:id", productController.updateProduct)
+// router.get("/getAll", productController.getAllProducts)
+// router.get("/get/:id", productController.getProductById)
 
 export default router

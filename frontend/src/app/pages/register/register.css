@@ -1,4 +1,5 @@
 /* ====== RESET E ESTILOS GERAIS ====== */
+
 * {
   margin: 0;
   padding: 0;
@@ -63,7 +64,7 @@ main {
 /* Label ligeiramente mais baixo, com fundo branco */
 .input-group label {
   position: absolute;
-  top: -6px; /* antes era -10px → agora mais alinhado com a linha */
+  top: -6px; 
   left: 10px;
   background-color: #fff;
   padding: 0 5px;
