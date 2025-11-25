@@ -1,14 +1,47 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, FormsModule],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
 export class LoginComponent {
 
+  email: string = '';
+  password: string = '';
 
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
+
+  login() {
+
+    if (!this.email || !this.password) {
+      alert("Preencha todos os campos.");
+      return;
+    }
+
+    const payload = {
+      email: this.email,
+      password: this.password
+    };
+
+    this.authService.login(payload).subscribe({
+      next: (res: any) => {
+        console.log('Login realizado', res);
+        localStorage.setItem('token', res.token);
+        alert("Logado com sucesso!");
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        alert(err.error.error || "Credenciais inválidas.");
+      }
+    });
+  }
 }
