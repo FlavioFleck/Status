@@ -1,0 +1,136 @@
+/* ======= ESTILOS GERAIS ======= */
+
+.page-title {
+  margin-bottom: 25px;
+}
+
+.page-title h2 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.page-title p {
+  color: #666;
+  margin-top: 4px;
+  font-size: 15px;
+}
+
+/* ======= CONTAINER PRINCIPAL ======= */
+
+.servicos-container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  border: 1px solid #e5e7eb;
+}
+
+/* ======= HEADER: botão + busca ======= */
+
+.servicos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.add-btn {
+  background: #4a6cf7;
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.add-btn:hover {
+  background: #3e5ae0;
+}
+
+.search-box input {
+  padding: 10px 14px;
+  width: 220px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.search-box input:focus {
+  border-color: #4a6cf7;
+  box-shadow: 0 0 0 2px rgba(74,108,247,0.15);
+}
+
+/* ======= TABELA ======= */
+
+.servicos-table {
+  display: grid;
+  gap: 10px;
+}
+
+/* Cabeçalho */
+.table-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr 0.7fr 0.8fr 1fr;
+  background: #eef2ff;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  color: #4a6cf7;
+}
+
+/* Linhas */
+.table-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 0.7fr 0.8fr 1fr;
+  align-items: center;
+  padding: 14px;
+  border-radius: 12px;
+  background: #fafbff;
+  border: 1px solid #e5e7eb;
+  transition: 0.2s ease;
+}
+
+.table-row:hover {
+  background: #f0f4ff;
+}
+
+/* ======= AÇÕES ======= */
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* Editar */
+.edit-btn {
+  background: #e5f0ff;
+  color: #3366ff;
+}
+
+.edit-btn:hover {
+  background: #d6e5ff;
+}
+
+/* Excluir */
+.delete-btn {
+  background: #ffe5e5;
+  color: #ff4b4b;
+}
+
+.delete-btn:hover {
+  background: #ffd4d4;
+}
