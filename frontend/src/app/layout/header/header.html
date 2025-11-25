@@ -1,7 +1,7 @@
 <header class="salon-header">
   
   <div class="logo">
-    <a routerLink="/"> 
+    <a routerLink="/">
       <h1>STATUS</h1>
       <span>cabeleireiros</span>
     </a>
@@ -9,21 +9,16 @@
 
   <nav class="main-nav">
     <ul>
-      <li><a routerLink="/" 
-             routerLinkActive="active" 
+      <li><a routerLink="/" routerLinkActive="active" 
              [routerLinkActiveOptions]="{exact: true}">Início</a></li>
              
-      <li><a routerLink="/services" 
-             routerLinkActive="active">Serviços</a></li>
+      <li><a routerLink="/" fragment="servicos" routerLinkActive="active">Serviços</a></li>
              
-      <li><a routerLink="/booking" 
-             routerLinkActive="active">Agendamento</a></li>
+      <li><a routerLink="/booking" routerLinkActive="active">Agendamento</a></li>
              
-      <li><a routerLink="/produtos" 
-             routerLinkActive="active">Produtos</a></li>
+      <li><a routerLink="/produtos" routerLinkActive="active">Produtos</a></li>
 
-      <li><a routerLink="/sobre" 
-             routerLinkActive="active">Sobre nós</a></li>
+      <li><a routerLink="/" fragment="sobre" routerLinkActive="active">Sobre nós</a></li>
     </ul>
   </nav>
 
