@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common'; // necessário p/ *ngFor, [ngClass], etc
-import { WeekNavigatorComponent } from '../../booking/week-navigator/week-navigator';
-import { ProfessionalListComponent } from '../../booking/professional-list/professional-list';
-import { TimeSlotListComponent } from '../../booking/time-slot-list/time-slot-list';
+import { WeekNavigatorComponent } from '../../components/week-navigator/week-navigator';
+import { ProfessionalListComponent } from '../../components/professional-list/professional-list';
+import { TimeSlotListComponent } from '../../components/time-slot-list/time-slot-list';
 
 @Component({
   selector: 'app-booking',
