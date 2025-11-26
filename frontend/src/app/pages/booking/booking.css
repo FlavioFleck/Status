@@ -161,6 +161,15 @@
   margin-bottom: 20px;
 }
 
+.month-label {
+  font-family: 'Josefin Slab', serif;
+  font-size: 0.95rem;
+  color: #7E3E3B; 
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
+
 .nav-btn {
   background-color: transparent;
   border: 1px solid #ddd;
@@ -189,7 +198,7 @@
   gap: 10px;
   overflow-x: auto;
   padding-bottom: 5px;
-  scrollbar-width: none; 
+  scrollbar-width: none;
 }
 .date-scroller::-webkit-scrollbar {
   display: none; 

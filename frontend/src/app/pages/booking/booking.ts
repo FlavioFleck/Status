@@ -11,11 +11,11 @@ import { FormsModule } from '@angular/forms';
 })
 export class BookingComponent implements OnInit {
 
-  // Data de referência (começa hoje)
+  // data de referência (começa hoje)
   currentStartDate = new Date(); 
   weekDays: any[] = []; 
   
-  // Dados Mockados
+  // mock
   public availableProfessionals: any[] = [
     { id: 1, name: 'Fulano' },
     { id: 2, name: 'Sicrano' },
@@ -25,15 +25,14 @@ export class BookingComponent implements OnInit {
 
   public availableTimes: string[] = ['10:00', '12:00', '14:00', '16:00', '18:00', '20:00'];
 
-  // Seleções
-  public selectedServiceName: string = ''; // Variável para guardar o nome do serviço
+  // seleções
+  public selectedServiceName: string = '';
   public selectedDay: Date | null = null; 
   public selectedProfessionalId: number | null = 1; 
   public selectedTime: string | null = this.availableTimes[0]; 
 
   ngOnInit() {
     this.generateWeekDays();
-    // Seleciona o primeiro dia da lista por padrão
     this.selectedDay = this.weekDays[0].fullDate;
   }
 
@@ -58,6 +57,31 @@ export class BookingComponent implements OnInit {
   getWeekDayName(date: Date): string {
     const name = date.toLocaleDateString('pt-BR', { weekday: 'short' });
     return name.replace('.', '').charAt(0).toUpperCase() + name.slice(1, 3);
+  }
+
+  // --- NOVO: Função para pegar o nome do Mês ---
+  get currentMonthLabel(): string {
+    if (this.weekDays.length === 0) return '';
+    
+    const firstDay = this.weekDays[0].fullDate;
+    const lastDay = this.weekDays[6].fullDate;
+    
+    const month1 = firstDay.toLocaleDateString('pt-BR', { month: 'long' });
+    const year1 = firstDay.getFullYear();
+
+    // Se a semana cruzar dois meses (Ex: final de Nov e começo de Dez)
+    if (firstDay.getMonth() !== lastDay.getMonth()) {
+      const month2 = lastDay.toLocaleDateString('pt-BR', { month: 'long' });
+      // Retorna "Novembro / Dezembro 2025"
+      return `${this.capitalize(month1)} / ${this.capitalize(month2)} ${year1}`;
+    }
+    
+    // Retorna "Novembro 2025"
+    return `${this.capitalize(month1)} ${year1}`;
+  }
+
+  capitalize(str: string) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
   nextWeek() {
