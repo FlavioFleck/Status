@@ -32,7 +32,7 @@ export default class ProductService {
         return result
     }
 
-    async getAllProduct(){
+    async getAllProducts(){
         const result = await this.productRepository.getAll()
         if(result.length < 1) {
             throw new Error("Não há produtos na lista!")
@@ -40,7 +40,7 @@ export default class ProductService {
         return result
     }
 
-    async getById(payload){
+    async getProductById(payload){
         const product = await this.productRepository.getById(payload)
         if(!product) {
             throw new Error("O produto com o id informado não existe!")
@@ -48,7 +48,7 @@ export default class ProductService {
         return product
     }
 
-    async getByName(payload){
+    async getProductByName(payload){
         const product = await this.productRepository.getByName(payload)
         if(!product) {
             throw new Error("O produto com o nome informado não existe!")
