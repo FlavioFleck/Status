@@ -1,24 +1,27 @@
 <div class="booking-page-wrapper">
   
   <header class="booking-header">
-    <h2>Agende seu Momento</h2>
+    <h2>Agende seu Horário</h2>
     <p>Escolha o serviço e o profissional ideal para você.</p>
   </header>
 
   <div class="booking-grid">
     
+    <!-- esquerda -->
     <div class="booking-steps">
       
       <section class="step-section">
         <h3>1. Qual serviço você deseja?</h3>
         <div class="custom-select-container">
-          <select id="service-select" class="modern-select">
+
+          <select id="service-select" class="modern-select" (change)="onServiceSelected($event)">
             <option value="" disabled selected>Selecione um serviço...</option>
             <option value="corte">Corte de Cabelo</option>
             <option value="escova">Escova Modelada</option>
             <option value="manicure">Manicure & Pedicure</option>
             <option value="coloracao">Coloração Completa</option>
           </select>
+
           <span class="arrow-icon">▼</span>
         </div>
       </section>
@@ -26,33 +29,37 @@
       <section class="step-section">
         <h3>2. Escolha o profissional</h3>
         <div class="professionals-grid">
-          
-          <div 
-            class="pro-card" 
-            *ngFor="let pro of availableProfessionals"
+          <div class="pro-card" *ngFor="let pro of availableProfessionals"
             [class.selected]="selectedProfessionalId === pro.id"
             (click)="onProfessionalSelected(pro)">
-            
+
             <div class="pro-avatar">{{ pro.name.charAt(0) }}</div>
             <span>{{ pro.name }}</span>
           </div>
-
         </div>
       </section>
 
       <section class="step-section">
         <h3>3. Escolha a data e horário</h3>
         
-        <div class="date-scroller">
-          <div 
-            class="date-card" 
-            *ngFor="let day of weekDays"
-            [class.selected]="selectedDay === day"
-            (click)="onDaySelected(day)">
-            
-            <span class="week-day">{{ day.name }}</span>
-            <span class="day-number">{{ day.num }}</span>
+        
+        <!-- navegação de data -->
+        <div class="week-navigation-wrapper">
+          
+          <button class="nav-btn" (click)="prevWeek()">&lt;</button>
+
+          <div class="date-scroller">
+            <div 
+              class="date-card" *ngFor="let day of weekDays"
+              [class.selected]="isSameDate(selectedDay, day.fullDate)"
+              (click)="onDaySelected(day)">
+              <span class="week-day">{{ day.name }}</span>
+              <span class="day-number">{{ day.num }}</span>
+            </div>
           </div>
+
+          <button class="nav-btn" (click)="nextWeek()">&gt;</button>
+
         </div>
 
         <div class="time-grid">
@@ -68,27 +75,25 @@
 
     </div> 
 
+    <!-- direita -->
     <div class="booking-summary-wrapper">
       <div class="summary-card">
         <h3>Resumo do Agendamento</h3>
         
         <div class="summary-item">
           <span class="label">Serviço</span>
-          <span class="value">Corte de Cabelo</span> 
+          <span class="value">{{ selectedServiceName || 'Selecione' }}</span> 
         </div>
         
         <div class="summary-item">
           <span class="label">Profissional</span>
-          <span class="value">
-            {{ getSelectedProfessionalName() || 'Selecione' }}
-          </span>
+          <span class="value">{{ getSelectedProfessionalName() }}</span>
         </div>
         
         <div class="summary-item">
           <span class="label">Data</span>
-          <span class="value">
-            {{ selectedDay ? (selectedDay.name + ', ' + selectedDay.num) : 'Selecione' }}
-          </span>
+          
+          <span class="value">{{ getFormattedDate() }}</span>
         </div>
         
         <div class="summary-item">

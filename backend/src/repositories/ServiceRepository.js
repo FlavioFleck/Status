@@ -47,7 +47,49 @@ export default class ServiceRepository{
         return info;
     }
 
-    
+    async getAll(){
+        const query = `
+            SELECT  name,
+                    description,
+                    price,
+                    created_at
+                FROM services; 
+        `
+
+        const [info] = await this.connection.query(query);
+        return info;
+    }
+
+    async getById({id}){
+        const query = `
+            SELECT  name,
+                    description,
+                    price,
+                    created_at
+                FROM services
+            WHERE id = ?;
+        `
+
+        const [info] = await this.connection.query(query, [
+            id
+        ]);
+        return info [0];
+    }
+
+    async getByName({name}) {
+        const query = `
+            SELECT  name,
+                    description,
+                    price
+                FROM services
+            WHERE name = ?;
+        `
+
+        const [info] = await this.connection.query(query, [
+            name
+        ]);
+        return info[0];
+    }
 
 
 

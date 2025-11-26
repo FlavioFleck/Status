@@ -55,7 +55,8 @@ export default class HairdresserRepository {
             SELECT  name,
                     email,
                     cpf,
-                    availability
+                    availability,
+                    created_at
                 FROM hairdressers;
         `
 
@@ -68,7 +69,8 @@ export default class HairdresserRepository {
             SELECT  name,
                     email,
                     cpf,
-                    availability
+                    availability,
+                    created_at
                 FROM hairdressers
             WHERE id = ?;
         `
