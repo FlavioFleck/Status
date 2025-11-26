@@ -30,6 +30,7 @@
     </div>
   </section>
 
+  <!-- modal (pop-up) -->
   <div class="modal-overlay" *ngIf="selectedProduct" (click)="closeModal()">
     <div class="modal-content" (click)="$event.stopPropagation()">
       
@@ -49,8 +50,7 @@
             <h4>Modo de Uso:</h4>
             <p>{{ selectedProduct.usage || 'Consulte o modo de uso na embalagem.' }}</p>
           </div>
-
-          </div>
+        </div>
       </div>
 
     </div>

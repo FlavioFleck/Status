@@ -170,6 +170,126 @@
     width: 100%;
 }
 
+/* estilos do  modal (pop-up) */
+/* fundo escuro atrás */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000; /* fica na frente de tudo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(5px); /* desfoque no fundo */
+    animation: fadeIn 0.3s ease;
+}
+
+/* caixa do modal */
+.modal-content {
+    display: flex; 
+    background-color: #fffbfb;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden; 
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    animation: slideUp 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #7E3E3B;
+    z-index: 10;
+}
+
+.modal-body {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+/* imagem dentro do modal */
+.modal-image {
+    flex: 1;
+    background-color: #faeded;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.modal-image img {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+/* infos dentro do modal */
+.modal-info {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.modal-info h2 {
+    font-family: 'Staatliches', serif;
+    font-size: 2.5rem;
+    color: #7E3E3B;
+    margin: 10px 0 20px 0;
+    line-height: 1.1;
+}
+
+.desc-longa {
+    font-size: 1.2rem;
+    color: #7E3E3B;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.extra-info {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #faeded;
+}
+
+.extra-info h4 {
+    color: #7E3E3B;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); }
+    to {transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .modal-body { flex-direction: column; }
+  .modal-image { height: 250px; padding: 20px; }
+  .modal-info { padding: 25px; }
+}
+
 @media (max-width: 1100px) {
     .products-grid {
     grid-template-columns: repeat(2, 1fr);

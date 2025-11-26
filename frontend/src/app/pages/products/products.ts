@@ -86,7 +86,7 @@ export class ProductsComponent {
     }
   ];
 
-  // funções do modal
+  // funções de abrir e fechar do modal
   openModal(product: any) {
     this.selectedProduct = product;
     document.body.style.overflow = 'hidden'; // trava a rolagem da pagina
