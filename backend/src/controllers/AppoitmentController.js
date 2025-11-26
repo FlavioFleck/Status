@@ -1,6 +1,6 @@
 export default class AppointmentController { 
     constructor(appointmentService) {
-        this.appointmentRepository = appointmentService
+        this.appointmentService = appointmentService
     }
 
     createAppointment = async(req, res) => {
