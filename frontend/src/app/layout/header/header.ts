@@ -14,6 +14,7 @@ import { AuthService } from '../../services/auth.service';
 export class HeaderComponent {
   isLoggedIn: boolean = false;
   user: any = null;
+  dropdownOpen = false;
 
   constructor(
     private authService: AuthService
@@ -22,5 +23,15 @@ export class HeaderComponent {
   ngOnInit() {
     this.authService.isLoggedIn$.subscribe(v => this.isLoggedIn = v);
     this.authService.user$.subscribe(u => this.user = u);
+  }
+
+  toggleDropdown() {
+    this.dropdownOpen = !this.dropdownOpen;
+  }
+
+  logout() {
+    this.authService.logout();
+    this.dropdownOpen = false;
+    window.location.reload(); 
   }
 }
