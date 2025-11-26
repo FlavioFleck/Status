@@ -44,5 +44,17 @@ export default class HairdresserRepository {
         return info
     } 
 
+    async getAll() {
+        const query = `
+            SELECT  name,
+                    cpf,
+                    availability
+            FROM hairdressers
+        `
+
+        const [info] = await this.connection.query(query);
+        return info;
+    }
+
     
 }
