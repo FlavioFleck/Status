@@ -17,5 +17,19 @@ export default class ServiceRepository{
         return info;
     }
 
+    async delete ({id}) {
+        const query = `
+            DELETE FROM services 
+                WHERE id = ?; 
+        `
+
+        const [info] = await this.connection.query(query, [
+            id
+        ]);
+        return info.affectedRows > 0;
+    }
+
     
+
+
 }
