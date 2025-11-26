@@ -21,7 +21,7 @@ export default class HairdresserService {
         const success = await this.hairdresserRepository.delete(payload);
 
         if(!success){
-            throw new Error("Funcionário informado incorretamente ou não existe.");
+            throw new Error("Funcionário informado incorretamente ou não existente.");
         }
 
         return success;
@@ -31,7 +31,7 @@ export default class HairdresserService {
         const result = await this.hairdresserRepository.update(payload);
 
         if(!result) {
-            throw new Error("Falha au atualizar funcionário");
+            throw new Error("Falha ao atualizar os dados do funcionário.");
         }
 
         return result;
@@ -46,7 +46,7 @@ export default class HairdresserService {
         return result;
     }
 
-    async getById(payload) {
+    async getHairdresserById(payload) {
         const result = await this.hairdresserRepository.getById(payload);
 
         if (!result){
@@ -55,7 +55,7 @@ export default class HairdresserService {
         return result;
     }
 
-    async getByName(payload) {
+    async getHairdressersByName(payload) {
         const result = await this.hairdresserRepository.getByName(payload);
 
         if (!result){
@@ -64,11 +64,11 @@ export default class HairdresserService {
         return result;
     }
 
-    async getByCpf(payload) {
+    async getHairdressersByCpf(payload) {
         const result = await this.hairdresserRepository.getByCpf(payload);
 
         if(!result){
-            throw new Error("O funcionário com o cpf informado não existe.")
+            throw new Error("O funcionário com o CPF informado não existe.")
         }
         return result;
     }
