@@ -80,4 +80,21 @@ export default class HairdresserRepository {
         ]);
         return info[0];
     }
+
+    async getByName({name}) {
+        const query = `
+            SELECT  name,
+                    email,
+                    cpf,
+                    availability,
+                    created_at
+                FROM hairdressers
+            WHERE name = ?;
+        `
+
+        const [info] = await this.connection.query(query, [
+            name
+        ]);
+        return info[0];
+    }
 }

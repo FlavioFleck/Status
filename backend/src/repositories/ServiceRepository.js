@@ -90,8 +90,4 @@ export default class ServiceRepository{
         ]);
         return info[0];
     }
-
-
-
-
 }
