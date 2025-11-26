@@ -1,0 +1,116 @@
+.agendamentos {
+  padding: 32px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* Botões */
+.btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn.small {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.edit {
+  background: #3b82f6;
+  color: white;
+}
+.edit:hover {
+  background: #2563eb;
+}
+
+.delete {
+  background: #ef4444;
+  color: white;
+}
+.delete:hover {
+  background: #dc2626;
+}
+
+.actions {
+  margin-bottom: 20px;
+}
+
+/* Tabela */
+.table-wrapper {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead tr {
+  background: #f3f4f6;
+}
+
+.table th {
+  text-align: left;
+  padding: 14px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-light);
+  border-bottom: 2px solid var(--border);
+}
+
+.table td {
+  padding: 14px;
+  font-size: 15px;
+  border-bottom: 1px solid var(--border);
+}
+
+.actions-col {
+  display: flex;
+  gap: 10px;
+}
+
+/* Status coloridos */
+.status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.status.aberto {
+  background: var(--blue);
+}
+
+.status.andamento {
+  background: var(--yellow);
+}
+
+.status.concluido {
+  background: var(--green);
+}
+
+/* Hover na linha */
+.table tbody tr:hover {
+  background: #f9fafb;
+}

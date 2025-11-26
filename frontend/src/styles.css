@@ -1,5 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&family=Josefin+Slab:wght@300;400;600&display=swap');
 
+:root {
+    /*admin*/
+    --bg: #f5f7fb;
+    --sidebar-bg: #111827;
+    --sidebar-hover: #1f2937;
+    --primary: #4f46e5;
+    --card-bg: #ffffff;
+    --text-dark: #1f2937;
+    --text-light: #9ca3af;
+    --radius: 14px;
+    --transition: 0.25s ease;
+
+    /*funcionarios*/
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --card-bg: #ffffff;
+    --radius: 12px;
+    --transition: 0.25s ease;
+    --border: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: 'Josefin Slab';

@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--text-dark);
+}
+
+.main {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+/* Cards */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.value {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* Card maior */
+.wide {
+  grid-column: span 2;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 15px;
+}
+
+.list li:last-child {
+  border-bottom: none;
+}

@@ -26,7 +26,15 @@ export default class AuthService {
             lastname: user.lastname
         });
 
-        return { token };
+        return { token,
+            user: {
+                id: user.id,
+                name: user.name,
+                lastname: user.lastname,
+                email: user.email,
+                role: user.role
+            }
+         };
     };
 
     register = async (payload) => {
