@@ -1,38 +1,108 @@
-<main class="booking-container">
+<div class="booking-page-wrapper">
+  
+  <header class="booking-header">
+    <h2>Agende seu Momento</h2>
+    <p>Escolha o serviço e o profissional ideal para você.</p>
+  </header>
+
+  <div class="booking-grid">
     
-  <section class="service-selector">
-    <label for="service-select">Selecione o serviço desejado:</label>
-    <div class="custom-select-wrapper">
-      <select id="service-select">
-        <option value="">Escolha um serviço...</option>
-        <option value="corte">Corte</option>
-        <option value="escova">Escova</option>
-        <option value="manicure">Manicure/Pedicure</option>
-        <option value="coloracao">Coloração</option>
-      </select>
-      <span class="select-arrow"></span> </div>
-  </section>
+    <div class="booking-steps">
+      
+      <section class="step-section">
+        <h3>1. Qual serviço você deseja?</h3>
+        <div class="custom-select-container">
+          <select id="service-select" class="modern-select">
+            <option value="" disabled selected>Selecione um serviço...</option>
+            <option value="corte">Corte de Cabelo</option>
+            <option value="escova">Escova Modelada</option>
+            <option value="manicure">Manicure & Pedicure</option>
+            <option value="coloracao">Coloração Completa</option>
+          </select>
+          <span class="arrow-icon">▼</span>
+        </div>
+      </section>
 
-  <app-week-navigator
-    [days]="weekDays"
-    [selectedDay]="selectedDay"
-    (daySelected)="onDaySelected($event)">
-  </app-week-navigator>
+      <section class="step-section">
+        <h3>2. Escolha o profissional</h3>
+        <div class="professionals-grid">
+          
+          <div 
+            class="pro-card" 
+            *ngFor="let pro of availableProfessionals"
+            [class.selected]="selectedProfessionalId === pro.id"
+            (click)="onProfessionalSelected(pro)">
+            
+            <div class="pro-avatar">{{ pro.name.charAt(0) }}</div>
+            <span>{{ pro.name }}</span>
+          </div>
 
-  <app-professional-list
-    [professionals]="availableProfessionals"
-    [selectedProfessionalId]="selectedProfessionalId"
-    (professionalSelected)="onProfessionalSelected($event)">
-  </app-professional-list>
+        </div>
+      </section>
 
-  <app-time-slot-list
-    [times]="availableTimes"
-    [selectedTime]="selectedTime"
-    (timeSelected)="onTimeSelected($event)">
-  </app-time-slot-list>
+      <section class="step-section">
+        <h3>3. Escolha a data e horário</h3>
+        
+        <div class="date-scroller">
+          <div 
+            class="date-card" 
+            *ngFor="let day of weekDays"
+            [class.selected]="selectedDay === day"
+            (click)="onDaySelected(day)">
+            
+            <span class="week-day">{{ day.name }}</span>
+            <span class="day-number">{{ day.num }}</span>
+          </div>
+        </div>
 
-  <button class="confirm-btn" (click)="confirmBooking()">
-    Confirmar Agendamento
-  </button>
-    
-</main>
+        <div class="time-grid">
+          <button 
+            class="time-slot" 
+            *ngFor="let time of availableTimes"
+            [class.selected]="selectedTime === time"
+            (click)="onTimeSelected(time)">
+            {{ time }}
+          </button>
+        </div>
+      </section>
+
+    </div> 
+
+    <div class="booking-summary-wrapper">
+      <div class="summary-card">
+        <h3>Resumo do Agendamento</h3>
+        
+        <div class="summary-item">
+          <span class="label">Serviço</span>
+          <span class="value">Corte de Cabelo</span> 
+        </div>
+        
+        <div class="summary-item">
+          <span class="label">Profissional</span>
+          <span class="value">
+            {{ getSelectedProfessionalName() || 'Selecione' }}
+          </span>
+        </div>
+        
+        <div class="summary-item">
+          <span class="label">Data</span>
+          <span class="value">
+            {{ selectedDay ? (selectedDay.name + ', ' + selectedDay.num) : 'Selecione' }}
+          </span>
+        </div>
+        
+        <div class="summary-item">
+          <span class="label">Horário</span>
+          <span class="value">{{ selectedTime || 'Selecione' }}</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <button class="confirm-btn-large" (click)="confirmBooking()">
+          Confirmar Agendamento
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
