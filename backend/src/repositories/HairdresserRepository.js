@@ -97,4 +97,21 @@ export default class HairdresserRepository {
         ]);
         return info[0];
     }
+
+    async getByCpf({cpf}) {
+        const query = `
+            SELECT  name,
+                    email,
+                    cpf,
+                    availability,
+                    created_at
+                FROM hairdressers
+            WHERE cpf = ?;
+        `
+
+        const [info] = await this.connection.query(query, [
+            cpf
+        ]);
+        return info[0];
+    }
 }
