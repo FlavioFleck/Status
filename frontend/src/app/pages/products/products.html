@@ -1,0 +1,59 @@
+<main class="catalog-page">
+  
+  <header class="catalog-hero">
+    <div class="hero-text">
+      <h1>Nossa Coleção</h1>
+      <p>Produtos profissionais selecionados pelos nossos experts para o seu home care.</p>
+    </div>
+  </header>
+
+  <section class="products-container">
+    <div class="products-grid">
+      
+      <div class="product-card" *ngFor="let item of products">
+        
+        <div class="card-image-wrapper">
+          <img [src]="item.image" [alt]="item.name">
+          <span class="tag-new">Profissional</span>
+        </div>
+        
+        <div class="card-details">
+          <span class="category">{{ item.category }}</span>
+          <h3>{{ item.name }}</h3>
+          <p>{{ item.description }}</p>
+          
+          <button class="btn-view" (click)="openModal(item)">Saiba mais</button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <div class="modal-overlay" *ngIf="selectedProduct" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      
+      <button class="close-btn" (click)="closeModal()">&times;</button>
+      
+      <div class="modal-body">
+        <div class="modal-image">
+          <img [src]="selectedProduct.image" [alt]="selectedProduct.name">
+        </div>
+        
+        <div class="modal-info">
+          <span class="tag-new">{{ selectedProduct.category }}</span>
+          <h2>{{ selectedProduct.name }}</h2>
+          <p class="desc-longa">{{ selectedProduct.description }}</p>
+          
+          <div class="extra-info">
+            <h4>Modo de Uso:</h4>
+            <p>{{ selectedProduct.usage || 'Consulte o modo de uso na embalagem.' }}</p>
+          </div>
+
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
