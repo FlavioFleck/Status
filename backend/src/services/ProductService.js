@@ -6,40 +6,28 @@ export default class ProductService {
     }
 
     async createProduct(payload) {
-        const { name, description, price, stock } = payload
-        const existingProduct = await this.productRepository.getByName(name)
+        const existingProduct = await this.productRepository.getByName(payload)
         if(existingProduct.length > 0) {
             throw new Error("Produto já existente!")
         }
 
-        const product = new Product(name, description, price, stock)
+        const product = new Product(payload)
         const result = await this.productRepository.add(product)
         return result
     }
 
     async deleteProduct(payload){
-        const { id } = payload
-        const result = await this.productRepository.delete(id)
-        if(result < 1) {
+        const success = await this.productRepository.delete(payload)
+        if(!success) {
             throw new Error("O produto informado não existe!")
         }
-        return result
+        return success
     }
 
     async updateProduct(payload){
-        const { id, product } = payload
-        const result = await this.productRepository.update(id, product)
+        const result = await this.productRepository.update(payload)
         if(result < 1) {
-            return { success: false, message: "Não foi possível atualizar o produto!" }
-        }
-        return { success: true, message: "Produto atualizado com sucesso!"} 
-    }
-
-    async getProductById(payload){
-        const { id } = payload
-        const result = await this.productRepository.get(id)
-        if(result < 1) {
-            throw new Error("O produto informado não existe!")
+            throw new Error("Não foi possível atualizar o produto!")
         }
         return result
     }
@@ -47,10 +35,30 @@ export default class ProductService {
     async getAllProduct(){
         const result = await this.productRepository.getAll()
         if(result.length < 1) {
-            return { success: false, message: "Não há produtos na lista!" }
+            throw new Error("Não há produtos na lista!")
         }
-        return { success: true, data: result }
+        return result
     }
+
+    async getById(payload){
+        const product = await this.productRepository.getById(payload)
+        if(product) {
+            throw new Error("O produto com o id informado não existe!")
+        }
+        return product
+    }
+
+    async getByName(payload){
+        const product = await this.productRepository.getByName(payload)
+        if(product) {
+            throw new Error("O produto com o nome informado não existe!")
+        }
+        return product
+    }
+    
+
+
+    
 
 
 }

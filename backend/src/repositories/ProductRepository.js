@@ -3,40 +3,34 @@ export default class ProductRepository {
         this.connection = connection
     }
 
-    async add(product) {
+    async add({name, description, price, stock}) {
         const query = "INSERT INTO products(name, description, price, stock) VALUE (?, ?, ?, ?)"
         const [info] = await this.connection.query(query, [
-            product.name,
-            product.description,
-            product.price,
-            product.stock
+            name,
+            description,
+            price,
+            stock
         ])
 
         return info.insertId
     }
     
-    async delete(id) {
+    async delete({id}) {
         const query = "DELETE FROM products WHERE id = ?"
         const [info] = await this.connection.query(query, [id])
-        return info.affectedRows
+        return info.affectedRows > 0
     }
 
-    async update(id, product) {
+    async update({name, description, price, stock, id}) {
         const query = "UPDATE products SET name = ?, description = ?, price = ?, stock = ? WHERE id = ?"
         const [info] = await this.connection.query(query, [
-            product.name,
-            product.description,
-            product.price,
-            product.stock,
+            name,
+            description,
+            price,
+            stock,
             id
         ])
-        return info.affectedRows
-    }
-
-    async get(id) {
-        const query = "SELECT * FROM products WHERE id = ?"
-        const [info] = await this.connection.query(query, [id])
-        return info[0]
+        return info
     }
 
     async getAll() {
@@ -45,9 +39,15 @@ export default class ProductRepository {
         return info
     }
 
-    async getByName(name) {
+    async getById({id}) {
+        const query = "SELECT * FROM products WHERE id = ?"
+        const [info] = await this.connection.query(query, [id])
+        return info[0]
+    }
+
+    async getByName({name}) {
         const query = "SELECT * FROM products WHERE name = ?"
         const [info] = await this.connection.query(query, [name])
-        return info
+        return info[0]
     }
 }
