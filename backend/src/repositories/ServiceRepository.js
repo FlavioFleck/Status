@@ -29,7 +29,27 @@ export default class ServiceRepository{
         return info.affectedRows > 0;
     }
 
+    async update({id, data}) {
+        const query = `
+            UPDATE services 
+                SET name = ?,
+                    description = ?,
+                    price = ?
+            WHERE id = ?;
+        `
+
+        const [info] = await this.connection.query(query, [
+            data.name,
+            data.description,
+            data.price,
+            id
+        ]);
+        return info;
+    }
+
     
+
+
 
 
 }
