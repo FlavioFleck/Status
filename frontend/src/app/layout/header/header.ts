@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
@@ -17,7 +17,8 @@ export class HeaderComponent {
   dropdownOpen = false;
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -32,6 +33,11 @@ export class HeaderComponent {
   logout() {
     this.authService.logout();
     this.dropdownOpen = false;
-    window.location.reload(); 
+
+    if (this.router.url === '/' || this.router.url.startsWith('/#')) {
+      window.location.reload();
+    } else {
+      this.router.navigate(['/']);
+    }
   }
 }
