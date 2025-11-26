@@ -17,5 +17,17 @@ export default class HairdresserRepository {
         return info;
     }
 
+    async delete({id}) {
+        const query = `
+            DELETE FROM hairdressers
+                WHERE id = ?; 
+        `
+
+        const [info] = this.connection.query(query[
+            id
+        ]);
+        return info.affectedRows;
+    }
+
     
 }
