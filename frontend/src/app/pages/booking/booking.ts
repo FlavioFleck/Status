@@ -1,25 +1,17 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common'; // necessário p/ *ngFor, [ngClass], etc
-import { WeekNavigatorComponent } from '../../components/week-navigator/week-navigator';
-import { ProfessionalListComponent } from '../../components/professional-list/professional-list';
-import { TimeSlotListComponent } from '../../components/time-slot-list/time-slot-list';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-booking',
   standalone: true,
-  imports: [
-    CommonModule,
-    WeekNavigatorComponent,
-    ProfessionalListComponent,
-    TimeSlotListComponent
-  ],
+  imports: [CommonModule, FormsModule], 
   templateUrl: './booking.html',
   styleUrls: ['./booking.css']
 })
 export class BookingComponent {
 
-// substituir por uma chamada de API
-
+  // dados mockados, substitui por chamada de API
   public weekDays: any[] = [
     { name: 'Seg', num: '03' },
     { name: 'Ter', num: '04' },
@@ -43,16 +35,15 @@ export class BookingComponent {
   public selectedProfessionalId: number | null = 1; // "fulano"
   public selectedTime: string | null = this.availableTimes[0]; // "10:00"
 
+  // funções do clique
   onDaySelected(day: any) {
     this.selectedDay = day;
-    console.log('Dia selecionado:', day.name);
-    // aqui você buscaria os profissionais para este dia
+    console.log('Dia selecionado:', day.name); // profissionais para este dia
   }
 
   onProfessionalSelected(professional: any) {
     this.selectedProfessionalId = professional.id;
-    console.log('Profissional selecionado:', professional.name);
-    // aqui você buscaria os horários para este profissional
+    console.log('Profissional selecionado:', professional.name); // horários para este profissional
   }
 
   onTimeSelected(time: string) {
@@ -60,11 +51,21 @@ export class BookingComponent {
     console.log('Horário selecionado:', time);
   }
 
+  // funções auxiliares
+  getSelectedProfessionalName(): string {
+    const pro = this.availableProfessionals.find(p => p.id === this.selectedProfessionalId);
+    return pro ? pro.name : 'Selecione';
+  }
+
   confirmBooking() {
-    console.log('Agendamento confirmado!');
-    console.log('Dia:', this.selectedDay.name);
-    console.log('Profissional ID:', this.selectedProfessionalId);
-    console.log('Horário:', this.selectedTime);
-    // envia os dados para o backend
+    const bookingData = {
+      day: this.selectedDay,
+      professionalId: this.selectedProfessionalId,
+      professionalName: this.getSelectedProfessionalName(),
+      time: this.selectedTime
+    };
+
+    console.log('Agendamento confirmado: ', bookingData);
+    alert(`Agendamento confirmado com ${bookingData.professionalName} às ${bookingData.time}!`);
   }
 }
