@@ -3,14 +3,15 @@ export default class HairdresserRepository {
         this.connection = connection;
     }
 
-    async add({name, cpf, availability}) {
+    async add({name, email, cpf, availability}) {
         const query =`
-            INSERT INTO hairdressers(name, cpf, availability)
-                VALUES(?, ?, ?); 
+            INSERT INTO hairdressers(name, email, cpf, availability)
+                VALUES(?, ?, ?, ?); 
         `
 
         const [info] = await this.connection.query(query, [
             name,
+            email,
             cpf,
             availability
         ]);
@@ -29,16 +30,21 @@ export default class HairdresserRepository {
         return info.affectedRows > 0;
     }
 
-    async update({id}) {
+    async update({id, data}) {
         const query = `
             UPDATE hairdressers
-                SET name,
-                    cpf,
-                    availability
+                SET name = ?,
+                    email = ?,
+                    cpf = ?,
+                    availability = ?
                 WHERE id = ?;
         `
 
         const [info] = await this.connection.query(query, [
+            data.name,
+            data.email,
+            data.cpf,
+            data.availability,
             id
         ]);
         return info
@@ -47,14 +53,29 @@ export default class HairdresserRepository {
     async getAll() {
         const query = `
             SELECT  name,
+                    email,
                     cpf,
                     availability
-            FROM hairdressers
+                FROM hairdressers;
         `
 
         const [info] = await this.connection.query(query);
         return info;
     }
 
-    
+    async getById({id}){
+        const query = `
+            SELECT  name,
+                    email,
+                    cpf,
+                    availability
+                FROM hairdressers
+            WHERE id = ?;
+        `
+
+        const [info] = await this.connection.query(query, [
+            id
+        ]);
+        return info[0];
+    }
 }
