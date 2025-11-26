@@ -11,6 +11,7 @@ import { ProdutosComponent } from './pages/admin/produtos/produtos';
 import { DashboardComponent } from './pages/admin/home/dashboard';
 import { ServicosComponent } from './pages/admin/servicos/servicos';
 import { UsuariosComponent } from './pages/admin/usuarios/usuarios';
+import { ProductsComponent } from './pages/products/products';
 
 export const routes: Routes = [
     {
@@ -20,7 +21,8 @@ export const routes: Routes = [
             { path: '', component: HomeComponent },
             { path: 'booking', component: BookingComponent },
             { path: 'login', component: LoginComponent },
-            { path: 'register', component: RegisterComponent }
+            { path: 'register', component: RegisterComponent },
+            { path: 'products', component: ProductsComponent }
         ]
     },
     {

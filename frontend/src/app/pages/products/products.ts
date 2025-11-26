@@ -15,21 +15,21 @@ export class ProductsComponent {
   // lista de produtos
   products = [
     {
-      category: 'Tratamento',
+      category: 'Manutenção',
       name: 'Shampoo Wella Professionals Fusion 1L',
       description: 'Reparação intensa e maciez. Limpa delicadamente enquanto reconstrói a fibra capilar danificada.',
       usage: 'Aplique nos cabelos molhados, massageie suavemente até formar espuma. Enxágue bem e repita se necessário.',
       image: 'assets/images/product1.png'
     },
     {
-      category: 'Tratamento',
+      category: 'Manutenção',
       name: 'Condicionador Wella Professionals Fusion 1L',
       description: 'Condicionador profissional que repara intensamente cabelos danificados com tecnologia Silksteel. Fortalece os fios, reduz a quebra e devolve brilho e maciez desde as primeiras aplicações. Fórmula pH balanceado em embalagem de 1000ml para uso prolongado em casa ou salão.',
       usage: 'Aplique no comprimento e pontas do cabelo úmido, deixe agir por 30 segundos e enxágue completamente.',
       image: 'assets/images/product2.png'
     },
     {
-      category: 'Tratamento',
+      category: 'Manutenção',
       name: 'Shampoo Sebastian Professional Dark Oil 1L',
       description: 'Shampoo Sebastian Dark Oil limpa suavemente enquanto nutre profundamente com blend de óleos de argan e jojoba. Proporciona hidratação intensa, maciez e brilho natural sem pesar, controla o frizz e deixa os fios disciplinados. Embalagem de 1000ml com rendimento ideal para uso diário.',
       usage: 'Aplique nos cabelos molhados, massageie até formar espuma e enxágue. Repita se necessário.',
@@ -50,7 +50,7 @@ export class ProductsComponent {
       image: 'assets/images/product5.png'
     },
     {
-      category: 'Tratamento',
+      category: 'Finalizador',
       name: 'Creme Finalizador Jacques Janine CC 15 em 1 Cream Capilar 200ml',
       description: 'Creme finalizador 15 em 1 Jacques Janine que hidrata, repara pontas duplas, controla o frizz e protege contra danos solares. Fórmula com óleo de girassol e manteiga de karité para fios macios, brilhantes e disciplinados, ideal para uso diário em todos os tipos de cabelo.',
       usage: 'Aplique no cabelo limpo e úmido, distribua do comprimento às pontas e modele ao natural ou com secador.',
@@ -64,21 +64,21 @@ export class ProductsComponent {
       image: 'assets/images/product7.png'
     },
     {
-      category: 'Tratamento',
+      category: 'Finalizador',
       name: 'Óleo Capilar L\'Oréal Professionnel Serie Expert Absolut Repair Quinoa 90ml',
       description: 'Tratamento intensivo para cabelos muito danificados e secos, que regenera profundamente a fibra capilar, nutre e reconstrói sem pesar. Protege contra o calor e controla o frizz, deixando os fios macios e com brilho intenso.',
       usage: 'Aplique algumas gotas nos cabelos limpos ou secos, distribuindo uniformemente do comprimento às pontas.',
       image: 'assets/images/product8.png'
     },
     {
-      category: 'Tratamento',
+      category: 'Coloração',
       name: 'Coloração Color Perfect Pure Naturals 5/0 Castanho Claro 60g',
       description: 'Coloração permanente Wella Professionals que oferece cobertura total dos fios brancos com acabamento natural e brilhante. Fórmula enriquecida com agentes condicionantes que protegem e hidratam durante a coloração, proporcionando cor intensa e duradoura com aspecto sedoso.',
       usage: 'Misture o creme com o revelador, aplique em cabelos secos e limpos, respeite o tempo de ação recomendado e enxágue bem até remover todo o produto.',
       image: 'assets/images/product9.png'
     },
     {
-      category: 'Tratamento',
+      category: 'Coloração',
       name: 'Descolorante Wella Professionals Blondor Multi Blonde Powder 400g',
       description: 'Pó descolorante de alta performance: clareia até 7 tons e neutraliza reflexos indesejados. Textura ideal para mechas e balayage com precisão e segurança.',
       usage: 'Misture o pó com o revelador na proporção indicada até formar pasta homogênea, aplique nas áreas desejadas, acompanhe o tempo de ação e enxágue. Finalize com condicionador.',
