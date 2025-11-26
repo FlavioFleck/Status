@@ -30,6 +30,7 @@ export class HeaderComponent {
     this.dropdownOpen = !this.dropdownOpen;
   }
 
+  //Logout
   logout() {
     this.authService.logout();
     this.dropdownOpen = false;
