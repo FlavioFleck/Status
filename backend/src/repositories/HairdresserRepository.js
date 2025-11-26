@@ -23,11 +23,26 @@ export default class HairdresserRepository {
                 WHERE id = ?; 
         `
 
-        const [info] = this.connection.query(query[
+        const [info] = await this.connection.query(query[
             id
         ]);
-        return info.affectedRows;
+        return info.affectedRows > 0;
     }
+
+    async update({id}) {
+        const query = `
+            UPDATE hairdressers
+                SET name,
+                    cpf,
+                    availability
+                WHERE id = ?;
+        `
+
+        const [info] = await this.connection.query(query, [
+            id
+        ]);
+        return info
+    } 
 
     
 }
