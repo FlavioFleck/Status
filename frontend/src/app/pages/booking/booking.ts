@@ -153,4 +153,19 @@ export class BookingComponent implements OnInit {
 
     alert(`Agendamento confirmado!`);
   }
+
+  // animação padrão
+  ngAfterViewInit() {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          obs.unobserve(entry.target); 
+        }
+      });
+    }, { threshold: 0.2 }); 
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  }
+
 }

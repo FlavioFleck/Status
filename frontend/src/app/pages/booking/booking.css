@@ -7,6 +7,18 @@
   --border-color: rgba(126, 62, 59, 0.2);
 }
 
+/* scroll animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .booking-page-wrapper {
   max-width: 1200px;
   margin: 0 auto;

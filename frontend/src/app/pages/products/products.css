@@ -6,6 +6,18 @@
     flex-direction: column;
 }
 
+/* scroll animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* banner do inicio (hero) */
 .catalog-hero {
     padding: 80px 0 40px 0;
