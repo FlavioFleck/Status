@@ -55,5 +55,4 @@ export default class ServiceService {
         }
         return result;
     }
-
 }
