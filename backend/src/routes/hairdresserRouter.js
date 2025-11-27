@@ -1,7 +1,7 @@
 import express from 'express'
 const router = express.Router()
 
-import connection from '../connection'
+import connection from '../connection.js'
 import HairdresserRespository from '../repositories/HairdresserRepository.js'
 import HairdresserService from '../services/HairdresserService.js'
 import HairdresserController from '../controllers/HairdresserController.js'

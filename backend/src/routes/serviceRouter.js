@@ -1,7 +1,7 @@
 import express from 'express'
 const router = express.Router()
 
-import connection from '../connection'
+import connection from '../connection.js'
 import ServiceRespository from '../repositories/ServiceRepository.js'
 import ServiceService from '../services/ServiceService.js'
 import ServiceController from '../controllers/ServiceController.js'

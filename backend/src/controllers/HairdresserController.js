@@ -5,6 +5,7 @@ export default class HairdresserController {
 
     createHairdresser = async (req, res) => {
         const payload = { ...req.body };
+        console.log(payload)
 
         try{
             const hairdresser = await this.hairdresserService.createHairdresser(payload);

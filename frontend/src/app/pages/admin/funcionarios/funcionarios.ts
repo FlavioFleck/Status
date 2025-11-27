@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalComponent } from '../modal/modal';
-
-
+import { HairdresserService } from '../../../services/hairdresser.service';
 
 @Component({
   selector: 'app-funcionarios',
@@ -19,6 +18,8 @@ export class FuncionariosComponent {
   modalValues: any = {};
   saveUser: any
 
+  constructor(private hairdresserService: HairdresserService) {}
+
   openAdd() {
     this.showModal = true;
 
@@ -26,11 +27,11 @@ export class FuncionariosComponent {
     const mymodal: { name:String, label:String, type: String, options: any}[] = []
 
     mymodal.push(
-      { name: "nome", label: "Nome", type: "text", options: []},
+      { name: "name", label: "Nome", type: "text", options: []},
       { name: "email", label: "Email", type: "text", options: [] },
       { name: "cpf", label: "CPF", type: "text", options: [] },
       { 
-        name: "disponibilidade", 
+        name: "availability", 
         label: "Disponibilidade", 
         type:"select",
         options: [
@@ -43,8 +44,10 @@ export class FuncionariosComponent {
     this.modalValues = {};
 
     this.saveUser = (data: any) => {
-      console.log(data)
-      this.showModal = false;
+      this.hairdresserService.create(data).subscribe((res:any) => {
+        this.showModal = false;
+        console.log(res)
+      })
     };
 
     this.showModal = true;
