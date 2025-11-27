@@ -1,0 +1,23 @@
+<main class="price-page">
+  
+  <header class="price-header">
+    <h1>Menu de Serviços</h1>
+    <p>Confira nossos valores e invista na sua melhor versão.</p>
+  </header>
+
+  <div class="menu-container">
+    
+    <section class="menu-category" *ngFor="let group of priceList">
+      
+      <h2>{{ group.category }}</h2>
+      
+      <div class="price-item" *ngFor="let item of group.services">
+        <span class="service-name">{{ item.name }}</span>
+        <span class="dots"></span>
+        <span class="service-price">{{ item.price }}</span>
+      </div>
+
+    </section>
+
+  </div>
+</main>

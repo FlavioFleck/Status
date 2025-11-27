@@ -12,6 +12,7 @@ import { DashboardComponent } from './pages/admin/home/dashboard';
 import { ServicosComponent } from './pages/admin/servicos/servicos';
 import { UsuariosComponent } from './pages/admin/usuarios/usuarios';
 import { ProductsComponent } from './pages/products/products';
+import { PriceListComponent } from './pages/price-list/price-list';
 
 export const routes: Routes = [
     {
@@ -22,7 +23,8 @@ export const routes: Routes = [
             { path: 'booking', component: BookingComponent },
             { path: 'login', component: LoginComponent },
             { path: 'register', component: RegisterComponent },
-            { path: 'products', component: ProductsComponent }
+            { path: 'products', component: ProductsComponent },
+            { path: 'services', component: PriceListComponent}
         ]
     },
     {
