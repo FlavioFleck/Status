@@ -1,50 +1,50 @@
-<main class="page">
-    <h1 class="title">Funcionários</h1>
-
-    <div class="actions">
-      <button class="btn primary">+ Adicionar Funcionário</button>
+<div class="funcionarios">
+  <!-- Página de Serviços -->
+  <div class="page-title">
+    <h2>Funcionários</h2>
+    <p>Gerencie os funcionários disponíveis no sistema</p>
+  </div>
+  
+  <div class="funcionarios-container">
+  
+    <!-- Header -->
+    <div class="funcionarios-header">
+      <button class="add-btn">Adicionar Funcionário</button>
+  
+      <div class="search-box">
+        <input type="text" placeholder="Buscar funcionário..." />
+      </div>
     </div>
+  
+    <!-- Tabela -->
+    <div class="funcionarios-table">
+  
+      <div class="table-header">
+        <span>Nome</span>
+        <span>Email</span>
+        <span>CPF</span>
+        <span>Disponibilidade</span>
+        <span>Ações</span>
+      </div>
+  
+      <!-- Exemplo 1 -->
+      <div class="table-row">
+        <span>João Silva</span>
+        <span>joao@example.com</span>
+        <span>000.000.000.00</span>
+        <span>Disponível</span>
 
-    <div class="table-wrapper">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Disponibilidade</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>João Silva</td>
-            <td>joao@example.com</td>
-            <td>Disponível</td>
-            <td class="actions-col">
-              <button class="btn small edit">Editar</button>
-              <button class="btn small delete">Excluir</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Maria Santos</td>
-            <td>maria@example.com</td>
-            <td>Em atendimento</td>
-            <td class="actions-col">
-              <button class="btn small edit">Editar</button>
-              <button class="btn small delete">Excluir</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Carlos Rocha</td>
-            <td>carlos@example.com</td>
-            <td>Indisponível</td>
-            <td class="actions-col">
-              <button class="btn small edit">Editar</button>
-              <button class="btn small delete">Excluir</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <span class="actions">
+          <button class="edit-btn">Editar</button>
+          <button class="delete-btn">Excluir</button>
+        </span>
+      </div>
+
     </div>
+  </div>
+</div>
 
-</main>
+
+
+
+

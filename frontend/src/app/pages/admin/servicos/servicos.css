@@ -71,10 +71,13 @@
   gap: 10px;
 }
 
+.servicos-table > * {
+  grid-template-columns: 1fr 1.5fr 1fr 1fr;
+}
+
 /* Cabeçalho */
 .table-header {
   display: grid;
-  grid-template-columns: 1fr 2fr 0.7fr 0.8fr 1fr;
   background: #eef2ff;
   padding: 14px;
   border-radius: 12px;
@@ -85,7 +88,6 @@
 /* Linhas */
 .table-row {
   display: grid;
-  grid-template-columns: 1fr 2fr 0.7fr 0.8fr 1fr;
   align-items: center;
   padding: 14px;
   border-radius: 12px;
@@ -133,4 +135,11 @@
 
 .delete-btn:hover {
   background: #ffd4d4;
+}
+
+@media (max-width: 1500px) {
+  .produtos-table > * {
+    grid-template-columns: 1fr 1.5fr 1fr 1fr;
+  }
+
 }
