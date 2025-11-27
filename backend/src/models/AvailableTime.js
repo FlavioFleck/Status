@@ -1,4 +1,4 @@
-export default class AvailableTimes {
+export default class AvailableTime {
     constructor(hairdresser_id, date, time, is_booked) {
         this.hairdresser_id = hairdresser_id
         this.date = date,

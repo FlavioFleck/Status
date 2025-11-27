@@ -1,4 +1,4 @@
-export default class AvailableTimesRepository {
+export default class AvailableTimeRepository {
     constructor(connection){
         this.connection = connection;
     }
