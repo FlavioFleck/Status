@@ -20,7 +20,7 @@ export class PriceListComponent {
         { name: 'Escova Modelada', price: 'R$ 60,00' },
         { name: 'Hidratação', price: 'R$ 80,00' }
       ]
-    }
+    },
   ];
 
 }

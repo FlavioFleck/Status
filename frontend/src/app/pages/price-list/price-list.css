@@ -1,0 +1,86 @@
+.price-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* cabeçalho */
+.price-header {
+    width: 100%;
+    padding: 80px 0 40px 0;
+    text-align: center;
+}
+
+.price-header h1 {
+  font-family: 'Staatliches', serif;
+    font-size: 3rem;
+    color: #7E3E3B;
+    margin: 0 0 15px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.price-header p {
+    font-family: 'Josefin Slab', serif;
+    font-size: 1.3rem;
+    color: #7E3E3B;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* menu */
+.menu-container {
+    background: #fffbfb;
+    width: 90%;
+    max-width: 800px;
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+}
+
+/* categorias */
+.menu-category {
+    margin-bottom: 50px;
+}
+
+.menu-category h2 {
+    font-family: 'Staatliches', serif;
+    font-size: 1.9rem;
+    color: #7E3E3B;
+    border-bottom: 2px solid #FFD9D7;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+/* pontinhos no menu */
+.price-item {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 15px;
+    font-family: 'Josefin Slab', serif;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.service-name {
+    font-weight: 600;
+    color: #42201E;
+    flex-shrink: 0;
+}
+
+.dots {
+    flex-grow: 1;
+    border-bottom: 2px dotted #ddd; /* pontinhos */
+    margin: 0 10px;
+    position: relative;
+    top: -5px;
+}
+
+.service-price {
+    font-weight: 700;
+    color: #7E3E3B;
+    flex-shrink: 0;
+}
