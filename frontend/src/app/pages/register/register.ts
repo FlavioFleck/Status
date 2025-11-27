@@ -44,7 +44,11 @@ export class RegisterComponent {
         this.authService.setSession(res.token, res.user);
 
         alert("Registrado com sucesso!");
-        this.router.navigate(['/']);
+        if (res.user.role === 'admin') {
+          this.router.navigate(['/admin']);
+        } else {
+          this.router.navigate(['/']);
+        }
       },
       error: (err) => {
         alert(err.error.error || "Erro ao registrar-se");

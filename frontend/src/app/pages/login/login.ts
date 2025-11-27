@@ -35,9 +35,16 @@ export class LoginComponent {
     this.authService.login(payload).subscribe({
       next: (res: any) => {
         console.log('Login realizado', res);
+
         this.authService.setSession(res.token, res.user);
+
         alert("Logado com sucesso!");
-        this.router.navigate(['/']);
+
+        if (res.user.role === 'admin') {
+          this.router.navigate(['/admin']);
+        } else {
+          this.router.navigate(['/']);
+        }
       },
       error: (err) => {
         alert(err.error.error || "Credenciais inválidas.");
