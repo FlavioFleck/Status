@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 80px;
 }
 
 /* cabeçalho */
@@ -83,4 +84,41 @@
     font-weight: 700;
     color: #7E3E3B;
     flex-shrink: 0;
+}
+
+/* botão que direciona para o agendamento */
+.action-area {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn-agendar {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: #7E3E3B;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-agendar:hover {
+    background-color: #713936;
+    transform: translateY(-2px);
+}
+
+/* responsividade */
+@media (max-width: 600px) {
+  .menu-container {
+    padding: 30px 20px;
+    width: 95%;
+  }
+  
+  .price-header h1 { font-size: 3rem; }
+
+  .price-item {
+    font-size: 1rem;
+  }
 }
