@@ -5,7 +5,6 @@ export default class HairdresserController {
 
     createHairdresser = async (req, res) => {
         const payload = { ...req.body };
-        console.log(payload)
 
         try{
             const hairdresser = await this.hairdresserService.createHairdresser(payload);
@@ -27,6 +26,7 @@ export default class HairdresserController {
 
     deleteHairdresser = async (req, res) => {
         const payload = { ...req.params };
+        console.log("Payload: ", payload)
 
         try {
             const success = await this.hairdresserService.deleteHairdresser(payload);

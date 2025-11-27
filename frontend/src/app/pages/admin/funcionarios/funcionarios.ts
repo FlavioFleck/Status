@@ -16,14 +16,41 @@ export class FuncionariosComponent {
   modalTitle = '';
   modalFields: any = [];
   modalValues: any = {};
-  saveUser: any
+  saveUser: any;
+
+  hairdressers: any [] = [];
 
   constructor(private hairdresserService: HairdresserService) {}
+
+  ngOnInit() {
+    this.loadHairdressers();
+  }
+
+  loadHairdressers() {
+    this.hairdresserService.getAll().subscribe((res:any) => {
+      this.hairdressers = res.hairdressers;
+      console.log("Funcionários carregados:", this.hairdressers);
+    });
+  }
+
+  deleteHairdresser(id: number) {
+    if (!confirm("Deseja realmente excluir este funcionário?")) return;
+
+    this.hairdresserService.delete(id).subscribe({
+      next: (res: any) => {
+        console.log("Excluído:", res);
+        this.loadHairdressers();
+      },
+      error: (err) =>{
+        alert(err.error?.error || "Erro ao excluir funcionário");
+      }
+    });
+  }
 
   openAdd() {
     this.showModal = true;
 
-    this.modalTitle = "Adicionar Usuário";
+    this.modalTitle = "Adicionar Funcionário";
     const mymodal: { name:String, label:String, type: String, options: any}[] = []
 
     mymodal.push(
@@ -45,11 +72,11 @@ export class FuncionariosComponent {
 
     this.saveUser = (data: any) => {
       this.hairdresserService.create(data).subscribe((res:any) => {
-        this.showModal = false;
         console.log(res)
-      })
+        this.showModal = false;
+        this.loadHairdressers();
+      });
     };
-
     this.showModal = true;
   }
 }

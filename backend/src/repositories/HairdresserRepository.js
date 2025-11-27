@@ -24,9 +24,7 @@ export default class HairdresserRepository {
                 WHERE id = ?; 
         `
 
-        const [info] = await this.connection.query(query[
-            id
-        ]);
+        const [info] = await this.connection.query(query, [id]);
         return info.affectedRows > 0;
     }
 
@@ -52,7 +50,8 @@ export default class HairdresserRepository {
 
     async getAll() {
         const query = `
-            SELECT  name,
+            SELECT  id,
+                    name,
                     email,
                     cpf,
                     availability,

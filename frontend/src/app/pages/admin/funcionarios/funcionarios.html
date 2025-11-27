@@ -1,24 +1,21 @@
 <div class="funcionarios">
-  <!-- Página de Serviços -->
   <div class="page-title">
     <h2>Funcionários</h2>
     <p>Gerencie os funcionários disponíveis no sistema</p>
   </div>
-  
+
   <div class="funcionarios-container">
-  
-    <!-- Header -->
+
     <div class="funcionarios-header">
       <button class="add-btn" (click)="openAdd()">Adicionar Funcionário</button>
-  
+
       <div class="search-box">
         <input type="text" placeholder="Buscar funcionário..." />
       </div>
     </div>
-  
-    <!-- Tabela -->
+
     <div class="funcionarios-table">
-  
+
       <div class="table-header">
         <span>Nome</span>
         <span>Email</span>
@@ -26,36 +23,37 @@
         <span>Disponibilidade</span>
         <span>Ações</span>
       </div>
-  
-      <!-- Exemplo 1 -->
-      <div class="table-row">
-        <span>João Silva</span>
-        <span>joao@example.com</span>
-        <span>000.000.000.00</span>
-        <span>Disponível</span>
+
+      <div class="table-row" *ngFor="let h of hairdressers">
+        <span>{{ h.name }}</span>
+        <span>{{ h.email }}</span>
+        <span>{{ h.cpf }}</span>
+        <span>
+          {{ h.availability === 'disponivel' ? 'Disponível' : 'Indisponível' }}
+        </span>
 
         <span class="actions">
           <button class="edit-btn">Editar</button>
-          <button class="delete-btn">Excluir</button>
+          <button class="delete-btn" (click)="deleteHairdresser(h.id)">Excluir</button>
         </span>
       </div>
 
-
-      
+      <div class="table-row empty" *ngIf="hairdressers.length === 0">
+        <span style="text-align: center; color: #777;">
+          Nenhum funcionário encontrado.
+        </span>
+      </div>
 
     </div>
   </div>
-    <app-modal
-      *ngIf="showModal"
-      [title]="modalTitle"
-      [fields]="modalFields"
-      [values]="modalValues"
-      [onSubmit]="saveUser"
-      (closeModal)="showModal = false">
-    </app-modal>  
+
+  <app-modal
+    *ngIf="showModal"
+    [title]="modalTitle"
+    [fields]="modalFields"
+    [values]="modalValues"
+    [onSubmit]="saveUser"
+    (closeModal)="showModal = false">
+  </app-modal>
+
 </div>
-
-
-
-
-
