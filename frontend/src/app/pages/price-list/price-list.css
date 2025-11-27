@@ -7,6 +7,18 @@
     padding-bottom: 80px;
 }
 
+/* scroll animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* cabeçalho */
 .price-header {
     width: 100%;

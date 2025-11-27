@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './price-list.html', 
   styleUrl: './price-list.css'
 })
-export class PriceListComponent {
+export class PriceListComponent implements AfterViewInit {
 
   priceList = [
     {
@@ -47,4 +47,18 @@ export class PriceListComponent {
       ]
     },
   ];
+
+  // animação igual a home
+  ngAfterViewInit() {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          obs.unobserve(entry.target); 
+        }
+      });
+    }, { threshold: 0.2 }); 
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  }
 }
