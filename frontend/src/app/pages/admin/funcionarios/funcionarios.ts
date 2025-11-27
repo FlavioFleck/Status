@@ -43,7 +43,7 @@ export class FuncionariosComponent {
     this.modalValues = {};
 
     this.saveUser = (data: any) => {
-      console.log("Salvar usuário => ", data);
+      console.log(data)
       this.showModal = false;
     };
 
