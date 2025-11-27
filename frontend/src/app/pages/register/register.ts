@@ -40,7 +40,9 @@ export class RegisterComponent {
     this.authService.register(payload).subscribe({
       next: (res: any) => {
         console.log('Usuário criado', res);
-        localStorage.setItem('token', res.token);
+
+        this.authService.setSession(res.token, res.user);
+
         alert("Registrado com sucesso!");
         this.router.navigate(['/']);
       },

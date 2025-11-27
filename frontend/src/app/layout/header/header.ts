@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterModule } from '@angular/router';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterModule, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -14,7 +13,7 @@ import { AuthService } from '../../services/auth.service';
 export class HeaderComponent {
   isLoggedIn: boolean = false;
   user: any = null;
-  dropdownOpen = false;
+  dropdownOpen: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -22,15 +21,19 @@ export class HeaderComponent {
   ) {}
 
   ngOnInit() {
-    this.authService.isLoggedIn$.subscribe(v => this.isLoggedIn = v);
-    this.authService.user$.subscribe(u => this.user = u);
+    this.authService.isLoggedIn$.subscribe(value => {
+      this.isLoggedIn = value;
+    });
+
+    this.authService.user$.subscribe(user => {
+      this.user = user;
+    });
   }
 
   toggleDropdown() {
     this.dropdownOpen = !this.dropdownOpen;
   }
 
-  //Logout
   logout() {
     this.authService.logout();
     this.dropdownOpen = false;

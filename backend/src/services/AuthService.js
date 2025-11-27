@@ -63,6 +63,16 @@ export default class AuthService {
             lastname
         });
 
-        return { id: insertId, token };
+        return { 
+            id: insertId, 
+            token,
+            user: {
+                id: insertId,
+                name: user.name,
+                lastname: user.lastname,
+                email: user.email,
+                role: user.role
+            }
+        };
     };
 }
