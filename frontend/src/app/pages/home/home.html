@@ -10,7 +10,14 @@
       Cuidamos de você com carinho, profissionalismo e produtos de alta qualidade — porque você merece se sentir incrível todos os dias!
       <br><br>Escolha seu profissional favorito, defina o melhor horário e venha viver uma experiência deliciosa de cuidado e estilo.
     </p>
-    <a routerLink="/register" class="cta-button">Registrar-se</a>
+
+    <a *ngIf="!isLoggedIn" routerLink="/register" class="cta-button">
+      Registrar-se
+    </a>
+    <a *ngIf="isLoggedIn" routerLink="/booking" class="cta-button">
+      Agendar Horário
+    </a>
+    
   </div>
 
   <div class="social-icons">

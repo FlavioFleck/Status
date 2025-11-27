@@ -11,6 +11,8 @@ import { RouterLink } from '@angular/router';
 })
 export class HomeComponent implements AfterViewInit {
 
+  isLoggedIn: boolean = false;
+
   ngAfterViewInit() {
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
