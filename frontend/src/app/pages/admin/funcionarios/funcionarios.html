@@ -9,7 +9,7 @@
   
     <!-- Header -->
     <div class="funcionarios-header">
-      <button class="add-btn">Adicionar Funcionário</button>
+      <button class="add-btn" (click)="openAdd()">Adicionar Funcionário</button>
   
       <div class="search-box">
         <input type="text" placeholder="Buscar funcionário..." />
@@ -40,8 +40,19 @@
         </span>
       </div>
 
+
+      
+
     </div>
   </div>
+    <app-modal
+      *ngIf="showModal"
+      [title]="modalTitle"
+      [fields]="modalFields"
+      [values]="modalValues"
+      [onSubmit]="saveUser"
+      (closeModal)="showModal = false">
+    </app-modal>  
 </div>
 
 

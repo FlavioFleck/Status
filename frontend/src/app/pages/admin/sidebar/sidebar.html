@@ -1,16 +1,18 @@
 <aside class="sidebar">
     <h2 class="logo">AdminPanel</h2>
     <nav>
-        <a href="/admin/dashboard" class="active">Dashboard</a>
-        <a href="/admin/funcionarios">Funcionários</a>
-        <a href="/admin/agendamentos">Agendamentos</a>
-        <a href="/admin/produtos">Produtos</a>
-        <a href="/admin/servicos">Serviços</a>
-        <a href="/admin/usuarios">Usuários</a>
+        <a routerLink="/admin/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dashboard</a>
+        <a routerLink="/admin/funcionarios" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Funcionários</a>
+        <a routerLink="/admin/agendamentos" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Agendamentos</a>
+        <a routerLink="/admin/produtos" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Produtos</a>
+        <a routerLink="/admin/servicos" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Serviços</a>
+        <a routerLink="/admin/usuarios" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Usuários</a>
     </nav>
 
     <div class="user-box">
-        <div class="user-name">Flávio Fleck ▾</div>
-        <div class="logout">Logout</div>
+        <div class="user-name">Flávio Fleck</div>
+        <div class="user-options">
+            <div class="logout">Logout</div>
+        </div>
     </div>
 </aside>

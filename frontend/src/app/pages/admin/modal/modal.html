@@ -1,0 +1,53 @@
+<div class="modal-backdrop" (click)="close()"></div>
+
+<div class="modal">
+  <h2>{{ title }}</h2>
+
+  <form (ngSubmit)="submit()">
+    <div *ngFor="let field of fields" class="form-control">
+      <label>{{ field.label }}</label>
+
+      <input 
+        *ngIf="field.type === 'text'" 
+        type="text" 
+        [(ngModel)]="values[field.name]" 
+        [name]="field.name"
+      />
+
+      <input 
+        *ngIf="field.type === 'number'" 
+        type="number" 
+        [(ngModel)]="values[field.name]" 
+        [name]="field.name"
+      />
+
+      <input 
+        *ngIf="field.type === 'file'" 
+        type="file" 
+        [(ngModel)]="values[field.name]" 
+        [name]="field.name"
+        [accept]="field.options[0].accept"
+      />
+
+      <select *ngIf="field.type === 'select'"
+        [(ngModel)]="values[field.name]" >
+  
+        <option *ngFor="let opt of field.options" [value]="opt.value">
+            {{ opt.label }} 
+        </option>
+
+        </select>
+
+      <textarea 
+        *ngIf="field.type === 'textarea'" 
+        [(ngModel)]="values[field.name]" 
+        name="{{ field.name }}">
+      </textarea>
+
+      <!-- outros tipos fáceis de adicionar -->
+    </div>
+
+    <button type="submit">Salvar</button>
+    <button type="button" (click)="close()">Cancelar</button>
+  </form>
+</div>

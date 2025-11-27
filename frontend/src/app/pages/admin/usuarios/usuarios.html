@@ -9,7 +9,7 @@
   
     <!-- Header -->
     <div class="usuarios-header">
-      <button class="add-btn">Adicionar Usuário</button>
+      <button class="add-btn" (click)="openAdd()">Adicionar Usuário</button>
   
       <div class="search-box">
         <input type="text" placeholder="Buscar usuário..." />
@@ -40,4 +40,12 @@
       </div>
     </div>
   </div>
+  <app-modal
+      *ngIf="showModal"
+      [title]="modalTitle"
+      [fields]="modalFields"
+      [values]="modalValues"
+      [onSubmit]="saveUser"
+      (closeModal)="showModal = false">
+    </app-modal>
 </div>

@@ -10,7 +10,7 @@
   
     <!-- Header -->
     <div class="servicos-header">
-      <button class="add-btn">Adicionar Serviço</button>
+      <button class="add-btn" (click)="openAdd()">Adicionar Serviço</button>
   
       <div class="search-box">
         <input type="text" placeholder="Buscar serviço..." />
@@ -38,7 +38,15 @@
           <button class="delete-btn">Excluir</button>
         </span>
       </div>
-  
     </div>
   </div>
+
+  <app-modal
+    *ngIf="showModal"
+    [title]="modalTitle"
+    [fields]="modalFields"
+    [values]="modalValues"
+    [onSubmit]="saveUser"
+    (closeModal)="showModal = false">
+  </app-modal>
 </div>

@@ -3,16 +3,23 @@
   height: 100%;
   width: 360px;
   background: var(--sidebar-bg);
-  color: white;
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+  color: #7e3e3b;
   display: flex;
   flex-direction: column;
   padding: 20px 30px;
 }
 
+
+
 .logo {
   font-size: 22px;
   font-weight: 700;
+  margin: 0;
   margin-bottom: 32px;
+  font-family: "Staatliches", serif;
+  font-size: 40px;
+  letter-spacing: 1px;
 }
 
 .sidebar nav a {
@@ -22,7 +29,9 @@
   border-radius: var(--radius);
   color: var(--text-light);
   text-decoration: none;
-  font-size: 15px;
+  font-family: "Josefin Slab", serif;
+  font-size: 20px;
+  font-weight: bold;
   transition: var(--transition);
 }
 
@@ -31,6 +40,7 @@
   background: var(--sidebar-hover);
   color: white;
 }
+
 
 /* User box */
 .user-box {
@@ -48,24 +58,35 @@
 }
 
 .user-name:hover {
+  color: white;
   background: var(--sidebar-hover);
 }
 
-.logout {
+.user-options {
   display: none;
-  padding: 10px 12px;
-  background: #ef4444;
+  position: absolute;
+  top: -50px;
+  width: 100%;
+  padding: 10px;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.3);
+  background-color: white;
   border-radius: var(--radius);
   margin-top: 8px;
   cursor: pointer;
   font-size: 14px;
-  transition: var(--transition);
+  transition: .3s
 }
 
-.user-box:hover .logout {
+.user-box:hover .user-options {
   display: block;
 }
 
+.logout {
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
 .logout:hover {
-  background: #dc2626;
+  color: white;
+  background: #ff6464;
 }

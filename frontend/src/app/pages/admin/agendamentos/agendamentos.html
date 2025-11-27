@@ -9,7 +9,7 @@
   
     <!-- Header -->
     <div class="agendamentos-header">
-      <button class="add-btn">Adicionar Agendamento</button>
+      <button class="add-btn" (click)="openAdd()">Adicionar Agendamento</button>
   
       <div class="search-box">
         <input type="text" placeholder="Buscar agendamento..." />
@@ -42,8 +42,18 @@
         </span>
       </div>
 
+      
+
     </div>
   </div>
+  <app-modal
+    *ngIf="showModal"
+    [title]="modalTitle"
+    [fields]="modalFields"
+    [values]="modalValues"
+    [onSubmit]="saveUser"
+    (closeModal)="showModal = false">
+  </app-modal>
 </div>
 
 

@@ -2,25 +2,15 @@
 
 :root {
     /*admin*/
-    --bg: #f5f7fb;
-    --sidebar-bg: #111827;
-    --sidebar-hover: #1f2937;
-    --primary: #4f46e5;
+    --bg: #ffd9d7;
+    --sidebar-bg: #ffffff;
+    --sidebar-hover: #7e3e3b;
+    --primary: #7e3e3b;
+    --primary-hover: #713936;
     --card-bg: #ffffff;
     --text-dark: #1f2937;
-    --text-light: #9ca3af;
-    --radius: 14px;
-    --transition: 0.25s ease;
-
-    /*funcionarios*/
-    --primary: #4f46e5;
-    --primary-hover: #4338ca;
-    --text-dark: #1f2937;
-    --text-light: #6b7280;
-    --card-bg: #ffffff;
-    --radius: 12px;
-    --transition: 0.25s ease;
-    --border: #e5e7eb;
+    --text-light: #7e3e3bb2;
+    --radius: 5px;
 }
 
 * {

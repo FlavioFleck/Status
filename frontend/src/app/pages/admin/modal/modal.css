@@ -1,0 +1,120 @@
+/* --- Fundo por trás do modal --- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  animation: fadeIn 0.2s;
+}
+
+/* --- Caixa do Modal --- */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  
+  background: #fff;
+  padding: 24px;
+  width: 420px;
+  max-width: 95%;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+
+  animation: popup 0.25s ease forwards;
+  z-index: 1001;
+}
+
+/* --- Título --- */
+.modal h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* --- Campos --- */
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.form-control label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+/* Inputs gerais */
+.form-control input,
+.form-control textarea, select {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s border-color;
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+  border-color: var(--primary);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* --- Botões --- */
+.modal button {
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+/* Botão principal */
+.modal button[type="submit"] {
+  background: var(--primary);
+  color: white;
+  margin-right: 10px;
+}
+
+.modal button[type="submit"]:hover {
+  background: var(--primary-hover);
+}
+
+/* Botão cancelar */
+.modal button[type="button"] {
+  background: #eee;
+  color: #333;
+}
+
+.modal button[type="button"]:hover {
+  background: #ddd;
+}
+
+/* --- Animações --- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes popup {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
